@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		891732FD20782DC700001EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891732FC20782DC700001EAB /* AppDelegate.swift */; };
+		8917330420782DC900001EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8917330320782DC900001EAB /* Assets.xcassets */; };
+		8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917330E20782F6B00001EAB /* NavigationCoordinator.swift */; };
+		8917331320782F6C00001EAB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917330F20782F6B00001EAB /* Coordinator.swift */; };
+		8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */; };
+		8917331520782F6C00001EAB /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331120782F6C00001EAB /* Coordinating.swift */; };
+		891733182078324700001EAB /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891733172078324700001EAB /* NeedsDependency.swift */; };
+		8917331B2078329200001EAB /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331A2078329200001EAB /* AppDependency.swift */; };
+		8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331E2078333D00001EAB /* ApplicationCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		891732F920782DC700001EAB /* FitBot_Activity_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBot_Activity_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		891732FC20782DC700001EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8917330320782DC900001EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8917330820782DC900001EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8917330E20782F6B00001EAB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		8917330F20782F6B00001EAB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit-CoordinatingExtensions.swift"; sourceTree = "<group>"; };
+		8917331120782F6C00001EAB /* Coordinating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
+		891733172078324700001EAB /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
+		8917331A2078329200001EAB /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		8917331E2078333D00001EAB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		891732F620782DC700001EAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		891732F020782DC700001EAB = {
+			isa = PBXGroup;
+			children = (
+				891732FB20782DC700001EAB /* FitBot_Activity_Tracker */,
+				891732FA20782DC700001EAB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		891732FA20782DC700001EAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				891732F920782DC700001EAB /* FitBot_Activity_Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		891732FB20782DC700001EAB /* FitBot_Activity_Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				891732FC20782DC700001EAB /* AppDelegate.swift */,
+				8917331C2078332400001EAB /* Dependency */,
+				891733192078325900001EAB /* Coordinators */,
+				8917331620782F7100001EAB /* Coordinting */,
+				8917330320782DC900001EAB /* Assets.xcassets */,
+				8917330820782DC900001EAB /* Info.plist */,
+			);
+			path = FitBot_Activity_Tracker;
+			sourceTree = "<group>";
+		};
+		8917331620782F7100001EAB /* Coordinting */ = {
+			isa = PBXGroup;
+			children = (
+				8917331120782F6C00001EAB /* Coordinating.swift */,
+				8917330F20782F6B00001EAB /* Coordinator.swift */,
+				8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */,
+				8917330E20782F6B00001EAB /* NavigationCoordinator.swift */,
+			);
+			path = Coordinting;
+			sourceTree = "<group>";
+		};
+		891733192078325900001EAB /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8917331E2078333D00001EAB /* ApplicationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8917331C2078332400001EAB /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				891733172078324700001EAB /* NeedsDependency.swift */,
+				8917331A2078329200001EAB /* AppDependency.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		891732F820782DC700001EAB /* FitBot_Activity_Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8917330B20782DC900001EAB /* Build configuration list for PBXNativeTarget "FitBot_Activity_Tracker" */;
+			buildPhases = (
+				891732F520782DC700001EAB /* Sources */,
+				891732F620782DC700001EAB /* Frameworks */,
+				891732F720782DC700001EAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitBot_Activity_Tracker;
+			productName = FitBot_Activity_Tracker;
+			productReference = 891732F920782DC700001EAB /* FitBot_Activity_Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		891732F120782DC700001EAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Aaron bikis";
+				TargetAttributes = {
+					891732F820782DC700001EAB = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 891732F420782DC700001EAB /* Build configuration list for PBXProject "FitBot_Activity_Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 891732F020782DC700001EAB;
+			productRefGroup = 891732FA20782DC700001EAB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				891732F820782DC700001EAB /* FitBot_Activity_Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		891732F720782DC700001EAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8917330420782DC900001EAB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		891732F520782DC700001EAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
+				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
+				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
+				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
+				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
+				891732FD20782DC700001EAB /* AppDelegate.swift in Sources */,
+				8917331B2078329200001EAB /* AppDependency.swift in Sources */,
+				8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8917330920782DC900001EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8917330A20782DC900001EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8917330C20782DC900001EAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rose.and.pine.creative.FitBot-Activity-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8917330D20782DC900001EAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "rose.and.pine.creative.FitBot-Activity-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		891732F420782DC700001EAB /* Build configuration list for PBXProject "FitBot_Activity_Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8917330920782DC900001EAB /* Debug */,
+				8917330A20782DC900001EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8917330B20782DC900001EAB /* Build configuration list for PBXNativeTarget "FitBot_Activity_Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8917330C20782DC900001EAB /* Debug */,
+				8917330D20782DC900001EAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 891732F120782DC700001EAB /* Project object */;
+}
