@@ -16,6 +16,10 @@
 		891733182078324700001EAB /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891733172078324700001EAB /* NeedsDependency.swift */; };
 		8917331B2078329200001EAB /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331A2078329200001EAB /* AppDependency.swift */; };
 		8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331E2078333D00001EAB /* ApplicationCoordinator.swift */; };
+		89D45D78207965CB00D3536F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D74207965CA00D3536F /* Roboto-Bold.ttf */; };
+		89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D75207965CB00D3536F /* Roboto-Regular.ttf */; };
+		89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D76207965CB00D3536F /* Roboto-Light.ttf */; };
+		89D45D7B207965CB00D3536F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D77207965CB00D3536F /* Roboto-Medium.ttf */; };
 		89DCDCD6207963AE00AE8254 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; };
 		89DCDCD7207963AE00AE8254 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89DCDCD8207963AE00AE8254 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */; };
@@ -61,6 +65,10 @@
 		891733172078324700001EAB /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
 		8917331A2078329200001EAB /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8917331E2078333D00001EAB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		89D45D74207965CA00D3536F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		89D45D75207965CB00D3536F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		89D45D76207965CB00D3536F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		89D45D77207965CB00D3536F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		89DCDCD1207963AD00AE8254 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = ../Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 		89DCDCD3207963AD00AE8254 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = ../Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
@@ -113,8 +121,7 @@
 				891733192078325900001EAB /* Coordinators */,
 				89E4593D20795B1300643F9D /* ViewControllers */,
 				89E4594020795BCA00643F9D /* Views */,
-				8917330320782DC900001EAB /* Assets.xcassets */,
-				8917330820782DC900001EAB /* Info.plist */,
+				89D45D7D207965DD00D3536F /* Includes */,
 			);
 			path = FitBot_Activity_Tracker;
 			sourceTree = "<group>";
@@ -146,6 +153,27 @@
 				89E4594320795D3A00643F9D /* Theme.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		89D45D7C207965CF00D3536F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				89D45D74207965CA00D3536F /* Roboto-Bold.ttf */,
+				89D45D76207965CB00D3536F /* Roboto-Light.ttf */,
+				89D45D77207965CB00D3536F /* Roboto-Medium.ttf */,
+				89D45D75207965CB00D3536F /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		89D45D7D207965DD00D3536F /* Includes */ = {
+			isa = PBXGroup;
+			children = (
+				89D45D7C207965CF00D3536F /* Fonts */,
+				8917330320782DC900001EAB /* Assets.xcassets */,
+				8917330820782DC900001EAB /* Info.plist */,
+			);
+			path = Includes;
 			sourceTree = "<group>";
 		};
 		89E4593D20795B1300643F9D /* ViewControllers */ = {
@@ -235,6 +263,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D45D7B207965CB00D3536F /* Roboto-Medium.ttf in Resources */,
+				89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */,
+				89D45D78207965CB00D3536F /* Roboto-Bold.ttf in Resources */,
+				89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */,
 				8917330420782DC900001EAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +419,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(SRCROOT)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FitBot_Activity_Tracker/Includes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,7 +441,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(SRCROOT)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FitBot_Activity_Tracker/Includes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
