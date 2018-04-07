@@ -9,6 +9,12 @@
 import UIKit
 import SVNBootstraper
 
+/**
+ A Model containing the thematic elements of the app, including:
+ - Colors
+ - Fonts
+
+ */
 struct Theme {
   enum Colors {
     case fitBotRed
@@ -24,5 +30,34 @@ struct Theme {
     }
   }
   
+  enum Fonts {
+    case title
+    case subtitle
+    case body
+    case detail
+
+    var font: UIFont {
+      switch self {
+      case .title:
+        return UIFont(name: ApplicationFonts.robotBold, size: 32)!
+      case .subtitle:
+        return UIFont(name: ApplicationFonts.robotoMed, size: 30)!
+      case .body:
+        return UIFont(name: ApplicationFonts.robotoReg, size: 20)!
+      case .detail:
+        return UIFont(name: ApplicationFonts.robotoLight, size: 18)!
+      }
+    }
+  }
   
+}
+
+
+
+
+private struct ApplicationFonts {
+  static let robotoReg: String =  "Roboto-Regular"
+  static let robotoLight: String = "Roboto-Light"
+  static let robotoMed: String = "Roboto-Medium"
+  static let robotBold: String = "Roboto-Bold"
 }
