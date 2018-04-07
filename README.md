@@ -1,5 +1,11 @@
 # Fitbot iOS Coding Challenge
 
+##To Install
+Git Clone
+cd FitBot_Activity_Tracker/FitBot_Activity_Tracker
+run bin/setup
+- This will install a few carthage dependenices
+
 ## Goal
 
 The goal of this challenge is to get a good sense of how you like to build something people love to use. Complete the challenge using your preferred style of code and with the aim that you would expect to pick this up and work on it again in a few months. Write code that is not only useful but you would be proud of. 
