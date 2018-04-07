@@ -1,0 +1,4 @@
+framework module SwiftEssentials {
+    header "SwiftEssentials-Swift.h"
+    requires objc
+}

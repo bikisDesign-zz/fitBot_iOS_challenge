@@ -1,0 +1,11 @@
+framework module SVNShapesManager {
+  umbrella header "SVNShapesManager.h"
+
+  export *
+  module * { export * }
+}
+
+module SVNShapesManager.Swift {
+    header "SVNShapesManager-Swift.h"
+    requires objc
+}
