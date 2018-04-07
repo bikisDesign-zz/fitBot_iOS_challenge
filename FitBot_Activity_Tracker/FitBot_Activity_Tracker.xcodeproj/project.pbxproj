@@ -19,7 +19,35 @@
 		89E4593F20795B3D00643F9D /* PastActivitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */; };
 		89E4594220795BED00643F9D /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594120795BED00643F9D /* AddButton.swift */; };
 		89E4594420795D3A00643F9D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594320795D3A00643F9D /* Theme.swift */; };
+		89E459492079613700643F9D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459452079613600643F9D /* Alamofire.framework */; };
+		89E4594A2079613700643F9D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459452079613600643F9D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89E4594B2079613700643F9D /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459462079613600643F9D /* SVNBootstraper.framework */; };
+		89E4594C2079613700643F9D /* SVNBootstraper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459462079613600643F9D /* SVNBootstraper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89E4594D2079613700643F9D /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459472079613600643F9D /* DeviceKit.framework */; };
+		89E4594E2079613700643F9D /* DeviceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459472079613600643F9D /* DeviceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89E4594F2079613700643F9D /* SVNShapesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459482079613700643F9D /* SVNShapesManager.framework */; };
+		89E459502079613700643F9D /* SVNShapesManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459482079613700643F9D /* SVNShapesManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89E459532079613C00643F9D /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459522079613B00643F9D /* SwiftEssentials.framework */; };
+		89E459542079613C00643F9D /* SwiftEssentials.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89E459522079613B00643F9D /* SwiftEssentials.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89E459512079613700643F9D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				89E459502079613700643F9D /* SVNShapesManager.framework in Embed Frameworks */,
+				89E459542079613C00643F9D /* SwiftEssentials.framework in Embed Frameworks */,
+				89E4594E2079613700643F9D /* DeviceKit.framework in Embed Frameworks */,
+				89E4594C2079613700643F9D /* SVNBootstraper.framework in Embed Frameworks */,
+				89E4594A2079613700643F9D /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		891732F920782DC700001EAB /* FitBot_Activity_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBot_Activity_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +64,11 @@
 		89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastActivitiesVC.swift; sourceTree = "<group>"; };
 		89E4594120795BED00643F9D /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		89E4594320795D3A00643F9D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		89E459452079613600643F9D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		89E459462079613600643F9D /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
+		89E459472079613600643F9D /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
+		89E459482079613700643F9D /* SVNShapesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNShapesManager.framework; path = Carthage/Build/iOS/SVNShapesManager.framework; sourceTree = "<group>"; };
+		89E459522079613B00643F9D /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +76,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E4594F2079613700643F9D /* SVNShapesManager.framework in Frameworks */,
+				89E459532079613C00643F9D /* SwiftEssentials.framework in Frameworks */,
+				89E4594D2079613700643F9D /* DeviceKit.framework in Frameworks */,
+				89E4594B2079613700643F9D /* SVNBootstraper.framework in Frameworks */,
+				89E459492079613700643F9D /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +90,11 @@
 		891732F020782DC700001EAB = {
 			isa = PBXGroup;
 			children = (
+				89E459522079613B00643F9D /* SwiftEssentials.framework */,
+				89E459452079613600643F9D /* Alamofire.framework */,
+				89E459472079613600643F9D /* DeviceKit.framework */,
+				89E459462079613600643F9D /* SVNBootstraper.framework */,
+				89E459482079613700643F9D /* SVNShapesManager.framework */,
 				891732FB20782DC700001EAB /* FitBot_Activity_Tracker */,
 				891732FA20782DC700001EAB /* Products */,
 			);
@@ -135,6 +178,8 @@
 				891732F520782DC700001EAB /* Sources */,
 				891732F620782DC700001EAB /* Frameworks */,
 				891732F720782DC700001EAB /* Resources */,
+				89E459512079613700643F9D /* Embed Frameworks */,
+				89E459552079615700643F9D /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -188,6 +233,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89E459552079615700643F9D /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftEssentials.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVNShapesManager.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVNBootstraper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DeviceKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		891732F520782DC700001EAB /* Sources */ = {
@@ -330,6 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,6 +418,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FitBot_Activity_Tracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
