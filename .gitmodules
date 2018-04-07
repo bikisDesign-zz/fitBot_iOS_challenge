@@ -1,0 +1,15 @@
+[submodule "Carthage/Checkouts/Alamofire"]
+	path = FitBot_Activity_Tracker/Carthage/Checkouts/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Carthage/Checkouts/DeviceKit"]
+	path = FitBot_Activity_Tracker/Carthage/Checkouts/DeviceKit
+	url = https://github.com/dennisweissmann/DeviceKit.git
+[submodule "Carthage/Checkouts/Swift-Essentials"]
+	path = FitBot_Activity_Tracker/Carthage/Checkouts/Swift-Essentials
+	url = https://github.com/bikisDesign/Swift-Essentials.git
+[submodule "Carthage/Checkouts/SVNShapesManager"]
+	path = FitBot_Activity_Tracker/Carthage/Checkouts/SVNShapesManager
+	url = https://github.com/sevenapps/SVNShapesManager.git
+[submodule "Carthage/Checkouts/SVNiOSBootstraper"]
+	path = FitBot_Activity_Tracker/Carthage/Checkouts/SVNiOSBootstraper
+	url = https://github.com/sevenapps/SVNiOSBootstraper.git
