@@ -16,6 +16,9 @@
 		891733182078324700001EAB /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891733172078324700001EAB /* NeedsDependency.swift */; };
 		8917331B2078329200001EAB /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331A2078329200001EAB /* AppDependency.swift */; };
 		8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331E2078333D00001EAB /* ApplicationCoordinator.swift */; };
+		89E4593F20795B3D00643F9D /* PastActivitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */; };
+		89E4594220795BED00643F9D /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594120795BED00643F9D /* AddButton.swift */; };
+		89E4594420795D3A00643F9D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594320795D3A00643F9D /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		891733172078324700001EAB /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
 		8917331A2078329200001EAB /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8917331E2078333D00001EAB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastActivitiesVC.swift; sourceTree = "<group>"; };
+		89E4594120795BED00643F9D /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		89E4594320795D3A00643F9D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,15 +70,17 @@
 			children = (
 				891732FC20782DC700001EAB /* AppDelegate.swift */,
 				8917331C2078332400001EAB /* Dependency */,
+				8917331620782F7100001EAB /* Coordinating */,
 				891733192078325900001EAB /* Coordinators */,
-				8917331620782F7100001EAB /* Coordinting */,
+				89E4593D20795B1300643F9D /* ViewControllers */,
+				89E4594020795BCA00643F9D /* Views */,
 				8917330320782DC900001EAB /* Assets.xcassets */,
 				8917330820782DC900001EAB /* Info.plist */,
 			);
 			path = FitBot_Activity_Tracker;
 			sourceTree = "<group>";
 		};
-		8917331620782F7100001EAB /* Coordinting */ = {
+		8917331620782F7100001EAB /* Coordinating */ = {
 			isa = PBXGroup;
 			children = (
 				8917331120782F6C00001EAB /* Coordinating.swift */,
@@ -80,7 +88,7 @@
 				8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */,
 				8917330E20782F6B00001EAB /* NavigationCoordinator.swift */,
 			);
-			path = Coordinting;
+			path = Coordinating;
 			sourceTree = "<group>";
 		};
 		891733192078325900001EAB /* Coordinators */ = {
@@ -96,8 +104,25 @@
 			children = (
 				891733172078324700001EAB /* NeedsDependency.swift */,
 				8917331A2078329200001EAB /* AppDependency.swift */,
+				89E4594320795D3A00643F9D /* Theme.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		89E4593D20795B1300643F9D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		89E4594020795BCA00643F9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89E4594120795BED00643F9D /* AddButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +197,13 @@
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
 				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
+				89E4594220795BED00643F9D /* AddButton.swift in Sources */,
+				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
 				891732FD20782DC700001EAB /* AppDelegate.swift in Sources */,
 				8917331B2078329200001EAB /* AppDependency.swift in Sources */,
+				89E4593F20795B3D00643F9D /* PastActivitiesVC.swift in Sources */,
 				8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
