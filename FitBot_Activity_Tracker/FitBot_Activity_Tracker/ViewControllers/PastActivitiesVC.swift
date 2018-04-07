@@ -9,7 +9,7 @@
 import UIKit
 import DeviceKit
 
-final class PastActivitiesViewController: UIViewController {
+final class PastActivitiesViewController: CoordinatableViewController {
   
   private lazy var addButton: AddButton = AddButton()
   
@@ -17,6 +17,7 @@ final class PastActivitiesViewController: UIViewController {
     let background = UIView(frame: navigationController!.view.bounds)
     background.backgroundColor = UIColor.white
     view = background
+    print(view.bounds)
     
     addButton.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(addButton)
@@ -30,6 +31,11 @@ final class PastActivitiesViewController: UIViewController {
     addButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     addButton.widthAnchor.constraint(equalToConstant: addButtonSize).isActive = true
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20).isActive = true
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print(view.frame)
   }
 }
 

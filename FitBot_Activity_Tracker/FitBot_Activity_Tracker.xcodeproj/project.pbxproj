@@ -20,6 +20,10 @@
 		89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D75207965CB00D3536F /* Roboto-Regular.ttf */; };
 		89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D76207965CB00D3536F /* Roboto-Light.ttf */; };
 		89D45D7B207965CB00D3536F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D77207965CB00D3536F /* Roboto-Medium.ttf */; };
+		89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D45D7F207974C400D3536F /* CoordinatableViewController.swift */; };
+		89D45D8220797AD000D3536F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D8120797AD000D3536F /* Main.storyboard */; };
+		89D45D8420797B7700D3536F /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D45D8320797B7700D3536F /* StoryboardLoadable.swift */; };
+		89D45D8720797BA300D3536F /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D45D8620797BA300D3536F /* Storyboards.swift */; };
 		89DCDCD6207963AE00AE8254 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; };
 		89DCDCD7207963AE00AE8254 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89DCDCD8207963AE00AE8254 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */; };
@@ -69,6 +73,10 @@
 		89D45D75207965CB00D3536F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		89D45D76207965CB00D3536F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		89D45D77207965CB00D3536F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		89D45D7F207974C400D3536F /* CoordinatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatableViewController.swift; sourceTree = "<group>"; };
+		89D45D8120797AD000D3536F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		89D45D8320797B7700D3536F /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		89D45D8620797BA300D3536F /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		89DCDCD1207963AD00AE8254 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = ../Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 		89DCDCD3207963AD00AE8254 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = ../Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
@@ -133,6 +141,8 @@
 				8917330F20782F6B00001EAB /* Coordinator.swift */,
 				8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */,
 				8917330E20782F6B00001EAB /* NavigationCoordinator.swift */,
+				89D45D7F207974C400D3536F /* CoordinatableViewController.swift */,
+				89D45D8320797B7700D3536F /* StoryboardLoadable.swift */,
 			);
 			path = Coordinating;
 			sourceTree = "<group>";
@@ -176,6 +186,15 @@
 			path = Includes;
 			sourceTree = "<group>";
 		};
+		89D45D8520797B9500D3536F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				89D45D8120797AD000D3536F /* Main.storyboard */,
+				89D45D8620797BA300D3536F /* Storyboards.swift */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		89E4593D20795B1300643F9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +206,7 @@
 		89E4594020795BCA00643F9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89D45D8520797B9500D3536F /* Storyboards */,
 				89E4594120795BED00643F9D /* AddButton.swift */,
 			);
 			path = Views;
@@ -266,6 +286,7 @@
 				89D45D7B207965CB00D3536F /* Roboto-Medium.ttf in Resources */,
 				89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */,
 				89D45D78207965CB00D3536F /* Roboto-Bold.ttf in Resources */,
+				89D45D8220797AD000D3536F /* Main.storyboard in Resources */,
 				89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */,
 				8917330420782DC900001EAB /* Assets.xcassets in Resources */,
 			);
@@ -280,10 +301,13 @@
 			files = (
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
+				89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */,
 				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
 				89E4594220795BED00643F9D /* AddButton.swift in Sources */,
 				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
+				89D45D8720797BA300D3536F /* Storyboards.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
+				89D45D8420797B7700D3536F /* StoryboardLoadable.swift in Sources */,
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
 				891732FD20782DC700001EAB /* AppDelegate.swift in Sources */,
 				8917331B2078329200001EAB /* AppDependency.swift in Sources */,
