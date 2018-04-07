@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     applicationCoord.start {
       
     }
-    
     return true
   }
 }

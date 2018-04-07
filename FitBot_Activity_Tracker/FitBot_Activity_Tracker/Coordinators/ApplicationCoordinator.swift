@@ -22,5 +22,4 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
     dependencies = AppDependency()
     super.start(with: completion)
   }
-  
 }
