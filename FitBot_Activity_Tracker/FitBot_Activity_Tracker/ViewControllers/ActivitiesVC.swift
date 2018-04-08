@@ -13,7 +13,11 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   
   private lazy var addButton: AddButton = AddButton()
   
-  var activityState: ActivityState = .overview
+  var activityState: ActivityState = .overview {
+    didSet {
+      addButton.animateStateChange(for: activityState)
+    }
+  }
   
   override func loadView() {
     // set background
@@ -39,7 +43,6 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   }
 
   @objc private func changeActivityState(){
-    addButton.animateStateChange(for: activityState)
     activityState = activityState == .add ? .detail : .add
   }
   

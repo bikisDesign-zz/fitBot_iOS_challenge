@@ -24,10 +24,27 @@ final class AddButton: UIView, CAAnimationDelegate {
   
   weak var delegate: AddButtonDelegate?
   
-  private lazy var circleLayer = CAShapeLayer()
-  private lazy var iconImageLayer = CALayer()
+  private lazy var circleLayer: CAShapeLayer = {
+    let cLayer = CAShapeLayer()
+    layer.addSublayer(cLayer)
+    return cLayer
+  }()
   
-  private var cachedBounds: CGRect = CGRect.zero
+  private lazy var iconImageLayer: CALayer = {
+    let iconLayer = CALayer()
+    self.circleLayer.addSublayer(iconLayer)
+    return iconLayer
+  }()
+  
+  private func circlePathFactory(isZero: Bool) -> UIBezierPath {
+    let center: CGFloat = min( bounds.size.width/2, bounds.size.height/2)
+    return UIBezierPath(
+      arcCenter: CGPoint(x:center,y:center),
+      radius: isZero ? CGFloat(0) : center,
+      startAngle: CGFloat(0),
+      endAngle:CGFloat(Double.pi * 2),
+      clockwise: true)
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -44,38 +61,25 @@ final class AddButton: UIView, CAAnimationDelegate {
   
   
   private func createCircle(){
-    let center: CGFloat = min( bounds.width/2, bounds.height/2)
-    let lineWidth:CGFloat = 1
-    
-    //create the path for the circle
-    let circlePath = UIBezierPath(
-      arcCenter: CGPoint(x:center,y:center),
-      radius: CGFloat(center - (lineWidth/2) ),
-      startAngle: CGFloat(0),
-      endAngle:CGFloat(Double.pi * 2),
-      clockwise: true)
     
     // create the shape layer set to the circle's path
-    
+    let circlePath = circlePathFactory(isZero: false)
     circleLayer.path = circlePath.cgPath
+    circleLayer.bounds = circlePath.bounds // if this isn't set it won't animate properly
     circleLayer.fillColor = Theme.Colors.fitBotRed.color.cgColor
-    circleLayer.strokeColor = Theme.Colors.fitBotRed.color.cgColor
-    circleLayer.lineWidth = lineWidth
     
     // create an image layer to go over the circle
     iconImageLayer.backgroundColor = UIColor.clear.cgColor
     
     let size = min(circlePath.bounds.width - 15, circlePath.bounds.height - 15)
+    let iconCenter = min(circlePath.bounds.width / 2, circlePath.bounds.height / 2)
     
-    let circleCenter: CGFloat = min(circlePath.bounds.width / 2, circlePath.bounds.height / 2)
-    
-    iconImageLayer.bounds = CGRect(x: circleCenter, y: circleCenter,
+    iconImageLayer.bounds = CGRect(x: iconCenter, y: iconCenter,
                                      width: size, height: size)
-    setIconImage(for: .add)
     
-    //add shapes as sublayers
-    circleLayer.addSublayer(iconImageLayer)
-    layer.addSublayer(circleLayer)
+    iconImageLayer.position = CGPoint(x: iconCenter, y: iconCenter)
+    iconImageLayer.contentsGravity = kCAGravityResizeAspect
+    setIconImage(for: .add)
   }
   
   
@@ -87,35 +91,56 @@ final class AddButton: UIView, CAAnimationDelegate {
   
   //AddButton Delegate
   func animateStateChange(for state: ActivityState){
-    animateCircleSize(toShrink: true) {
-      //      DispatchQueue.main.async {
-      //        self.setIconImage(for: state == .add ? .detail : .add)
-      //        self.animateCircleSize(toShrink: false, with: {
-      //          self.delegate?.transitionAnimationDidFinish()
+    print(state)
+    animateCircle(shouldShrink: state == .add) {
+      
     }
   }
-  
+
   // animate circle shrink or expand
-  private func animateCircleSize(toShrink shouldShrink: Bool, with  callback: @escaping() -> ()){
+  private func animateCircle(shouldShrink: Bool, with callback: @escaping() -> ()){
+    
     CATransaction.begin()
-    
-    let sizeAnimation = CABasicAnimation(keyPath: "size")
-    
-    
-    CATransaction.setCompletionBlock{ [weak self] in
-      self?.animeExample()
+    CATransaction.setAnimationDuration(0.25)
+    CATransaction.setCompletionBlock { // need to set the completion handler BEFORE setting the animation
+      
+      CATransaction.begin()
+      CATransaction.setAnimationDuration(0.25)
+      CATransaction.setCompletionBlock({
+        callback()
+      })
+      
+      self.setAnimationProperties(shouldShrink: shouldShrink, isFirstAnim: false)
+      CATransaction.commit()
     }
-    
-    someLayer.add(a, forKey: nil)
+
+    setAnimationProperties(shouldShrink: shouldShrink, isFirstAnim: true)
     CATransaction.commit()
   }
   
   
+  private func setAnimationProperties(shouldShrink: Bool, isFirstAnim: Bool){
+    if shouldShrink {
+      if isFirstAnim {
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault))
+        circleLayer.transform = CATransform3DMakeScale(1.15, 1.15, 1)
+        return
+      }
+      CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+      self.circleLayer.transform = CATransform3DMakeScale(0, 0, 1)
+      return
+    }
+    if isFirstAnim {
+      CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault))
+      circleLayer.transform = CATransform3DMakeScale(1.15, 1.15, 1)
+      return
+    }
+    CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+    circleLayer.transform = CATransform3DMakeScale(1, 1, 1)
+  }
+  
+  
   private func setIconImage(for state: ActivityState){
-    let center = min( bounds.size.width/2, bounds.size.height/2)
-    iconImageLayer.position = CGPoint(x: center, y: center)
-    iconImageLayer.contentsGravity = kCAGravityResizeAspect
-    
     if state == .add {
       iconImageLayer.contents = #imageLiteral(resourceName: "Icons_Add").cgImage
     } else {
