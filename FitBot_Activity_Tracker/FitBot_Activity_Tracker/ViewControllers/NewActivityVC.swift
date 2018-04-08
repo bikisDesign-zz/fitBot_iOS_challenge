@@ -6,4 +6,13 @@
 //  Copyright © 2018 Aaron bikis. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class NewActivityViewController: UIViewController {
+  
+  
+  override func loadView() {
+    view = NewActivityBackgroundView(frame: navigationController!.view.bounds)
+    
+  }
+}
