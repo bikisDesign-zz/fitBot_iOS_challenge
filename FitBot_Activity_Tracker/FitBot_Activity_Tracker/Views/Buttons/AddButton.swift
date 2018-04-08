@@ -26,21 +26,24 @@ final class AddButton: UIView, CAAnimationDelegate {
   
   private lazy var circleLayer: CAShapeLayer = {
     let cLayer = CAShapeLayer()
+    cLayer.fillColor = Theme.Colors.fitBotRed.color.cgColor
     layer.addSublayer(cLayer)
     return cLayer
   }()
   
   private lazy var iconImageLayer: CALayer = {
     let iconLayer = CALayer()
+    iconLayer.backgroundColor = UIColor.clear.cgColor
+    iconLayer.contentsGravity = kCAGravityResizeAspect
     self.circleLayer.addSublayer(iconLayer)
     return iconLayer
   }()
   
-  private func circlePathFactory(isZero: Bool) -> UIBezierPath {
+  private func circlePathFactory() -> UIBezierPath {
     let center: CGFloat = min( bounds.size.width/2, bounds.size.height/2)
     return UIBezierPath(
       arcCenter: CGPoint(x:center,y:center),
-      radius: isZero ? CGFloat(0) : center,
+      radius: center,
       startAngle: CGFloat(0),
       endAngle:CGFloat(Double.pi * 2),
       clockwise: true)
@@ -63,14 +66,11 @@ final class AddButton: UIView, CAAnimationDelegate {
   private func createCircle(){
     
     // create the shape layer set to the circle's path
-    let circlePath = circlePathFactory(isZero: false)
+    let circlePath = circlePathFactory()
     circleLayer.path = circlePath.cgPath
     circleLayer.bounds = circlePath.bounds // if this isn't set it won't animate properly
-    circleLayer.fillColor = Theme.Colors.fitBotRed.color.cgColor
-    
+  
     // create an image layer to go over the circle
-    iconImageLayer.backgroundColor = UIColor.clear.cgColor
-    
     let size = min(circlePath.bounds.width - 15, circlePath.bounds.height - 15)
     let iconCenter = min(circlePath.bounds.width / 2, circlePath.bounds.height / 2)
     
@@ -78,7 +78,6 @@ final class AddButton: UIView, CAAnimationDelegate {
                                      width: size, height: size)
     
     iconImageLayer.position = CGPoint(x: iconCenter, y: iconCenter)
-    iconImageLayer.contentsGravity = kCAGravityResizeAspect
     setIconImage(for: .add)
   }
   
