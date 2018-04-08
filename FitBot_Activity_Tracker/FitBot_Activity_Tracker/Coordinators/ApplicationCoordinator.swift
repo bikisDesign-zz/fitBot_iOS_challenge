@@ -23,7 +23,7 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
     
     super.start(with: completion)
     
-    let vc = PastActivitiesViewController()
+    let vc = ActivitiesViewController()
     show(vc)
   }
 }

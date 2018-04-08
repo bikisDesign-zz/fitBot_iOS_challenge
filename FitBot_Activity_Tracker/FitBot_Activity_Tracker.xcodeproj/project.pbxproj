@@ -22,6 +22,7 @@
 		89D45D7B207965CB00D3536F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D77207965CB00D3536F /* Roboto-Medium.ttf */; };
 		89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D45D7F207974C400D3536F /* CoordinatableViewController.swift */; };
 		89D45D8920797D5300D3536F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D8820797D5300D3536F /* Launch Screen.storyboard */; };
+		89D45D8D2079825300D3536F /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D45D8C2079825300D3536F /* ActivityState.swift */; };
 		89DCDCD6207963AE00AE8254 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; };
 		89DCDCD7207963AE00AE8254 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD1207963AD00AE8254 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89DCDCD8207963AE00AE8254 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */; };
@@ -32,7 +33,7 @@
 		89DCDCDD207963AE00AE8254 /* DeviceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD4207963AE00AE8254 /* DeviceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89DCDCDE207963AE00AE8254 /* SVNShapesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD5207963AE00AE8254 /* SVNShapesManager.framework */; };
 		89DCDCDF207963AE00AE8254 /* SVNShapesManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89DCDCD5207963AE00AE8254 /* SVNShapesManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		89E4593F20795B3D00643F9D /* PastActivitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */; };
+		89E4593F20795B3D00643F9D /* ActivitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4593E20795B3D00643F9D /* ActivitiesVC.swift */; };
 		89E4594220795BED00643F9D /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594120795BED00643F9D /* AddButton.swift */; };
 		89E4594420795D3A00643F9D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4594320795D3A00643F9D /* Theme.swift */; };
 /* End PBXBuildFile section */
@@ -73,12 +74,13 @@
 		89D45D77207965CB00D3536F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		89D45D7F207974C400D3536F /* CoordinatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatableViewController.swift; sourceTree = "<group>"; };
 		89D45D8820797D5300D3536F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		89D45D8C2079825300D3536F /* ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
 		89DCDCD1207963AD00AE8254 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		89DCDCD2207963AD00AE8254 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = ../Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
 		89DCDCD3207963AD00AE8254 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = ../Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		89DCDCD4207963AE00AE8254 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = ../Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
 		89DCDCD5207963AE00AE8254 /* SVNShapesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNShapesManager.framework; path = ../Carthage/Build/iOS/SVNShapesManager.framework; sourceTree = "<group>"; };
-		89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastActivitiesVC.swift; sourceTree = "<group>"; };
+		89E4593E20795B3D00643F9D /* ActivitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesVC.swift; sourceTree = "<group>"; };
 		89E4594120795BED00643F9D /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		89E4594320795D3A00643F9D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				891732FC20782DC700001EAB /* AppDelegate.swift */,
+				89D45D8B2079823B00D3536F /* Model */,
 				8917331C2078332400001EAB /* Dependency */,
 				8917331620782F7100001EAB /* Coordinating */,
 				891733192078325900001EAB /* Coordinators */,
@@ -189,10 +192,26 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		89D45D8A2079807200D3536F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				89E4594120795BED00643F9D /* AddButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		89D45D8B2079823B00D3536F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89D45D8C2079825300D3536F /* ActivityState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		89E4593D20795B1300643F9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				89E4593E20795B3D00643F9D /* PastActivitiesVC.swift */,
+				89E4593E20795B3D00643F9D /* ActivitiesVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				89D45D8520797B9500D3536F /* Storyboards */,
-				89E4594120795BED00643F9D /* AddButton.swift */,
+				89D45D8A2079807200D3536F /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D45D8D2079825300D3536F /* ActivityState.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
 				89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */,
@@ -303,7 +323,7 @@
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
 				891732FD20782DC700001EAB /* AppDelegate.swift in Sources */,
 				8917331B2078329200001EAB /* AppDependency.swift in Sources */,
-				89E4593F20795B3D00643F9D /* PastActivitiesVC.swift in Sources */,
+				89E4593F20795B3D00643F9D /* ActivitiesVC.swift in Sources */,
 				8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

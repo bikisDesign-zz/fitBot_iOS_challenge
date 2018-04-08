@@ -9,33 +9,42 @@
 import UIKit
 import DeviceKit
 
-final class PastActivitiesViewController: CoordinatableViewController {
+final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate {
   
   private lazy var addButton: AddButton = AddButton()
   
+  var activityState: ActivityState = .overview
+  
   override func loadView() {
+    // set background
     let background = UIView(frame: navigationController!.view.bounds)
     background.backgroundColor = UIColor.white
     view = background
-    print(view.bounds)
     
+    // addButton to view
     addButton.translatesAutoresizingMaskIntoConstraints = false
+    addButton.addTapRecognizer(with: self, selector: #selector(changeActivityState))
+    addButton.delegate = self
     view.addSubview(addButton)
     
     let margins = view.layoutMarginsGuide
     let device = Device()
     let addButtonSize = CGFloat(device.diagonal * 8)
-    print(addButtonSize)
     
+    //Set button constraints
     addButton.heightAnchor.constraint(equalToConstant: addButtonSize).isActive = true
     addButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     addButton.widthAnchor.constraint(equalToConstant: addButtonSize).isActive = true
-    addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20).isActive = true
+    addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
+  }
+
+  @objc private func changeActivityState(){
+    addButton.animateStateChange(for: activityState)
+    activityState = activityState == .add ? .detail : .add
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    print(view.frame)
+  func transitionAnimationDidFinish() {
+    print("complete animation")
   }
 }
 
