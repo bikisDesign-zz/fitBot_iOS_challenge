@@ -12,6 +12,7 @@ final class NewActivityBackgroundView: UIView {
   
   lazy var triangleShape: CAShapeLayer = {
     let shape = CAShapeLayer()
+    shape.fillColor = UIColor.white.cgColor
     layer.addSublayer(shape)
     return shape
   }()

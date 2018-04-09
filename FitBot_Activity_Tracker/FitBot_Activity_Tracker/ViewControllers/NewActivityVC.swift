@@ -12,7 +12,6 @@ final class NewActivityViewController: UIViewController {
   
   
   override func loadView() {
-    view = NewActivityBackgroundView(frame: navigationController!.view.bounds)
-    
+    view = NewActivityBackgroundView()
   }
 }

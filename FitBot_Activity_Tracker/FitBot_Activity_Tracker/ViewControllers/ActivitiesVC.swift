@@ -10,19 +10,26 @@ import UIKit
 import DeviceKit
 import SwiftEssentials
 
+protocol ActivitiesViewControllerDelegate: class {
+  func presentNewActivityForm()
+}
+
 final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate {
+  
+  weak var delegate: ActivitiesViewControllerDelegate?
   
   private lazy var addButton: AddButton = AddButton()
   
   var activityState: ActivityState = .overview
   
+  private var newActivityVC: NewActivityViewController?
   
-  lazy var newActivityVC: NewActivityViewController = {
-    let vc = NewActivityViewController()
-    embed(controller: vc, into: view)
-    vc.view.frame.origin = CGPoint(x: 0, y: view.frame.height)
-    return vc
-  }()
+  private func addNewActivityVC(shouldAdd: Bool) {
+    newActivityVC = NewActivityViewController()
+    embed(controller: newActivityVC!, into: view)
+    newActivityVC?.view.frame.origin = CGPoint(x: 0, y: view.frame.height)
+  }
+
   
   
   override func loadView() {
@@ -50,7 +57,16 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
 
   
   @objc private func addNewActivity(){
-    activityState = activityState == .overview ? .add : .overview
+    
+    switch activityState {
+    case .overview:
+      addNewActivityVC(shouldAdd: true)
+      
+    case .add:
+      break
+    case .detail:
+      break
+    }
     addButton.isUserInteractionEnabled = false
     addButton.shrink()
   }
@@ -58,7 +74,18 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   
   // add button delegate
   func addButtonDidFinishShrinking() {
-    addButton.expand(for: activityState)
+    switch activityState {
+    case .overview:
+      DispatchQueue.main.async {
+        self.delegate?.presentNewActivityForm()
+      }
+      
+    case .add:
+      break
+    case .detail:
+      break
+      
+    }
   }
   
   

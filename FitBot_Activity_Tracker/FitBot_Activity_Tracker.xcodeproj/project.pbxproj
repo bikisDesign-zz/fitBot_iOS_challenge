@@ -16,6 +16,10 @@
 		891733182078324700001EAB /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891733172078324700001EAB /* NeedsDependency.swift */; };
 		8917331B2078329200001EAB /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331A2078329200001EAB /* AppDependency.swift */; };
 		8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331E2078333D00001EAB /* ApplicationCoordinator.swift */; };
+		897B67E9207ACA82002E0120 /* NewActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B67E8207ACA82002E0120 /* NewActivityVC.swift */; };
+		897B67EC207ACC25002E0120 /* NewActivityBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B67EB207ACC25002E0120 /* NewActivityBackgroundView.swift */; };
+		897B67EE207AF8CA002E0120 /* TopPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B67ED207AF8CA002E0120 /* TopPresentAnimationController.swift */; };
+		897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B67F0207AFCF9002E0120 /* ActivityCoordinator.swift */; };
 		89D45D78207965CB00D3536F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D74207965CA00D3536F /* Roboto-Bold.ttf */; };
 		89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D75207965CB00D3536F /* Roboto-Regular.ttf */; };
 		89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D76207965CB00D3536F /* Roboto-Light.ttf */; };
@@ -68,6 +72,10 @@
 		891733172078324700001EAB /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
 		8917331A2078329200001EAB /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8917331E2078333D00001EAB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		897B67E8207ACA82002E0120 /* NewActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityVC.swift; sourceTree = "<group>"; };
+		897B67EB207ACC25002E0120 /* NewActivityBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityBackgroundView.swift; sourceTree = "<group>"; };
+		897B67ED207AF8CA002E0120 /* TopPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPresentAnimationController.swift; sourceTree = "<group>"; };
+		897B67F0207AFCF9002E0120 /* ActivityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCoordinator.swift; sourceTree = "<group>"; };
 		89D45D74207965CA00D3536F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		89D45D75207965CB00D3536F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		89D45D76207965CB00D3536F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 				8917331620782F7100001EAB /* Coordinating */,
 				891733192078325900001EAB /* Coordinators */,
 				89E4593D20795B1300643F9D /* ViewControllers */,
+				897B67EF207AF8CE002E0120 /* AnimationController */,
 				89E4594020795BCA00643F9D /* Views */,
 				89D45D7D207965DD00D3536F /* Includes */,
 			);
@@ -149,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8917331E2078333D00001EAB /* ApplicationCoordinator.swift */,
+				897B67F0207AFCF9002E0120 /* ActivityCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -161,6 +171,22 @@
 				89E4594320795D3A00643F9D /* Theme.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		897B67EA207ACC15002E0120 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				897B67EB207ACC25002E0120 /* NewActivityBackgroundView.swift */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		897B67EF207AF8CE002E0120 /* AnimationController */ = {
+			isa = PBXGroup;
+			children = (
+				897B67ED207AF8CA002E0120 /* TopPresentAnimationController.swift */,
+			);
+			path = AnimationController;
 			sourceTree = "<group>";
 		};
 		89D45D7C207965CF00D3536F /* Fonts */ = {
@@ -211,6 +237,7 @@
 		89E4593D20795B1300643F9D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				897B67E8207ACA82002E0120 /* NewActivityVC.swift */,
 				89E4593E20795B3D00643F9D /* ActivitiesVC.swift */,
 			);
 			path = ViewControllers;
@@ -219,6 +246,7 @@
 		89E4594020795BCA00643F9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				897B67EA207ACC15002E0120 /* Backgrounds */,
 				89D45D8520797B9500D3536F /* Storyboards */,
 				89D45D8A2079807200D3536F /* Buttons */,
 			);
@@ -312,12 +340,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				897B67EC207ACC25002E0120 /* NewActivityBackgroundView.swift in Sources */,
 				89D45D8D2079825300D3536F /* ActivityState.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
+				897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
 				89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */,
 				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
+				897B67EE207AF8CA002E0120 /* TopPresentAnimationController.swift in Sources */,
 				89E4594220795BED00643F9D /* AddButton.swift in Sources */,
+				897B67E9207ACA82002E0120 /* NewActivityVC.swift in Sources */,
 				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
