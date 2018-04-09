@@ -29,27 +29,25 @@ final class PopButton: UIView, CAAnimationDelegate {
     let iconLayer = CALayer()
     iconLayer.backgroundColor = UIColor.clear.cgColor
     iconLayer.contentsGravity = kCAGravityResizeAspect
-    self.circleLayer.addSublayer(iconLayer)
+    iconLayer.contents = iconImage?.cgImage
+    layer.addSublayer(iconLayer)
     return iconLayer
   }()
-
-  override func draw(_ rect: CGRect) {
-    createCircle()
-  }
   
-  
-  private func createCircle(){
+  override func layoutSubviews() {
+    super.layoutSubviews()
     // create the shape layer set to the circle's path
     let circlePath = UIBezierPath(ovalIn: bounds)
     circleLayer.path = circlePath.cgPath
     
     // create an image layer to go over the circle
-    let size = min(circlePath.bounds.width - 15, circlePath.bounds.height - 15)
-    iconImageLayer.bounds = CGRect(x: circlePath.bounds.origin.x, y: circlePath.bounds.origin.y,
+    let size = min(bounds.width - 15, bounds.height - 15)
+    let iconCenter = min(bounds.width / 2, bounds.height / 2)
+    
+    iconImageLayer.bounds = CGRect(x: 0, y: 0,
                                    width: size, height: size)
     
-    iconImageLayer.position = center
-    iconImageLayer.contents = iconImage?.cgImage
+    iconImageLayer.position = CGPoint(x: iconCenter, y: iconCenter)
   }
   
   
