@@ -27,6 +27,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     let label = UILabel()
     label.text = Content.Text.formTitle.text
     label.font = Theme.Fonts.title.font
+    label.textColor = UIColor.white
     return label
   }()
   
@@ -39,9 +40,11 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     let dismissButtonSize = CGFloat(device.diagonal * 8)
     
     dismissButton.translatesAutoresizingMaskIntoConstraints = false
+    formTitle.translatesAutoresizingMaskIntoConstraints = false
     dismissButton.addTapRecognizer(with: self, selector: #selector(dismissNewActivity))
     dismissButton.delegate = self
     dismissButton.iconImage = #imageLiteral(resourceName: "Icons_Dismiss")
+    
     view.addSubview(dismissButton)
     view.addSubview(formTitle)
     
@@ -51,10 +54,10 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     dismissButton.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
     dismissButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 25).isActive = true
     dismissButton.widthAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
-    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: dismissButtonSize / 2).isActive = true
+    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 25).isActive = true
     
     formTitle.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
-    formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor, constant: dismissButtonSize).isActive = true
+    formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor).isActive = true
     formTitle.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize).isActive = true
   }
