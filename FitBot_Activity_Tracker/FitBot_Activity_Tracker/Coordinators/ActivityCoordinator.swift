@@ -42,15 +42,20 @@ final class ActivityCoordinator: NavigationCoordinator, NeedsDependency, UIViewC
 extension ActivityCoordinator: ActivitiesViewControllerDelegate {
   func presentNewActivityForm() {
     let vc = NewActivityViewController()
-    
+    vc.delegate = self
     let nc = UINavigationController(rootViewController: vc)
     nc.setNavigationBarHidden(true, animated: false)
     nc.transitioningDelegate = self
-    
     present(nc)
   }
   
   func dismissNewActivityForm() {
+    rootViewController.dismiss(animated: true, completion: nil)
+  }
+}
+
+extension ActivityCoordinator: NewActivityViewControllerDelegate {
+  func dismissNewActivityVC() {
     rootViewController.dismiss(animated: true, completion: nil)
   }
 }

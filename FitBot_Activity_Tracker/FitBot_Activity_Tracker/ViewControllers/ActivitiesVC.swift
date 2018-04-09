@@ -43,6 +43,13 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if addButton.animationState == .isHidden { // if returning after dismissing the new activity VC this button will need to be refreshed
+      addButton.lightenExpand()
+    }
+  }
+  
   
   //MARK: AddButton Delegates
   @objc private func addNewActivity(){
@@ -50,7 +57,7 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   }
   
   // add button delegate
-  func addButtonDidFinishShrinking() {
+  func animationFinished() {
     DispatchQueue.main.async {
       self.delegate?.presentNewActivityForm()
     }

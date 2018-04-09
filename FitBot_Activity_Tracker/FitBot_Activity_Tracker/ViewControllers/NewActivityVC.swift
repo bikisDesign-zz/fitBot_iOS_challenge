@@ -10,10 +10,10 @@ import UIKit
 import DeviceKit
 
 protocol NewActivityViewControllerDelegate: class {
-  
+  func dismissNewActivityVC()
 }
 
-final class NewActivityViewController: CoordinatableViewController {
+final class NewActivityViewController: CoordinatableViewController, AddButtonDelegate {
   weak var delegate: NewActivityViewControllerDelegate?
   
   private lazy var dismissButton = PopButton()
@@ -27,6 +27,7 @@ final class NewActivityViewController: CoordinatableViewController {
     
     dismissButton.translatesAutoresizingMaskIntoConstraints = false
     dismissButton.addTapRecognizer(with: self, selector: #selector(dismissNewActivity))
+    dismissButton.delegate = self
     dismissButton.iconImage = #imageLiteral(resourceName: "Icons_Dismiss")
     view.addSubview(dismissButton)
     
@@ -34,13 +35,21 @@ final class NewActivityViewController: CoordinatableViewController {
     
     //Set button constraints
     dismissButton.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
-    dismissButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+    dismissButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 25).isActive = true
     dismissButton.widthAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
-    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 10).isActive = true
+    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 25).isActive = true
   }
   
   
   @objc func dismissNewActivity(){
-    
+      dismissButton.darkenExpand()
   }
+  
+  
+  func animationFinished() {
+    DispatchQueue.main.async {
+      self.delegate?.dismissNewActivityVC()
+    }
+  }
+  
 }
