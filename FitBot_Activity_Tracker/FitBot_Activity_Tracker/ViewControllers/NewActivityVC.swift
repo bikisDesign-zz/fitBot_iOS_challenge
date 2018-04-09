@@ -19,10 +19,10 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
   
   private lazy var dismissButton = PopButton()
   
-//  private lazy var formVC: SVNFormViewController = {
-//    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect(x: view.layoutMargins.left, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>))
-//  }()
-//
+  private lazy var formVC: SVNFormViewController = {
+    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect(x: view.layoutMargins.left, y: formTitle.frame.origin.y + formTitle.frame.size.height + 25, width: view.frame.width - view.layoutMargins.left * 2, height: SVNFormViewModel.TextFieldCellHeight * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)))
+  }()
+
   private lazy var formTitle: UILabel = {
     let label = UILabel()
     label.text = Content.Text.formTitle.text
@@ -56,6 +56,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     dismissButton.widthAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
     dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 25).isActive = true
     
+    //set title constraints
     formTitle.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
     formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor).isActive = true
     formTitle.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
@@ -73,5 +74,39 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
       self.delegate?.dismissNewActivityVC()
     }
   }
+}
+
+
+extension NewActivityViewController: SVNFormViewControllerDelegate {
+  func formWasValidated(withText text: [String]) {
+    
+  }
   
+  func notifyUserOfFailedValidation() {
+    
+  }
+  
+  func forwardingOnToolTipTap(withData data: SVNFormTermsOverlayDataSource) {
+    
+  }
+  
+  func fieldWasValidated(field: SVNFormField) {
+    
+  }
+  
+  func scrollViewContentOffset(isZero: Bool) {
+    
+  }
+  
+  func forwarding(_ textField: SVNFormTextField, shouldChangeCharecters range: NSRange, replacement string: String) -> Bool {
+    return true
+  }
+  
+  func formWillBeginEditing(completion: @escaping (Bool) -> ()) {
+    
+  }
+  
+  func formWillFinishEditing() {
+    
+  }
 }
