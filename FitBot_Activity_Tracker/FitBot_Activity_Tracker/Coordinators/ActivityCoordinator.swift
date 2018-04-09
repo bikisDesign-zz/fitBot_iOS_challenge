@@ -8,13 +8,15 @@
 
 import UIKit
 
-final class ActivityCoordinator: NavigationCoordinator, NeedsDependency {
+final class ActivityCoordinator: NavigationCoordinator, NeedsDependency, UIViewControllerTransitioningDelegate {
   var dependencies: AppDependency? {
     didSet {
       updateChildCoordinatorDependencies()
       processQueuedMessages()
     }
   }
+  
+  var activityState: ActivityState = .overview
   
   override func start(with completion: @escaping () -> Void) {
     super.start(with: completion)
@@ -23,14 +25,32 @@ final class ActivityCoordinator: NavigationCoordinator, NeedsDependency {
     show(vc)
   }
   
-//  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//    return TopPresentAnimationController(originFrame: view.frame)
-//  }
+  //MARK: - UIViewControllerTransitioningDelegate
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    let animator = PresentReverseAnimator()
+    animator.isPresenting = true
+    return animator
+  }
+  
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    let animator = PresentReverseAnimator()
+    animator.isPresenting = false
+    return animator
+  }
 }
 
 extension ActivityCoordinator: ActivitiesViewControllerDelegate {
   func presentNewActivityForm() {
     let vc = NewActivityViewController()
-    show(vc)
+    
+    let nc = UINavigationController(rootViewController: vc)
+    nc.setNavigationBarHidden(true, animated: false)
+    nc.transitioningDelegate = self
+    
+    present(nc)
+  }
+  
+  func dismissNewActivityForm() {
+    rootViewController.dismiss(animated: true, completion: nil)
   }
 }
