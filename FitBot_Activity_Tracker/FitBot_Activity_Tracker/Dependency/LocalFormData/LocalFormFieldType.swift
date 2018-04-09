@@ -10,7 +10,7 @@ import UIKit
 import SVNTextValidator
 
 enum LocalFormFieldType: SVNFormFieldType {
-  case time
+  case email
   case <#pattern#>
   
   var fieldData: SVNFormFieldDataSource {
@@ -30,9 +30,4 @@ private struct EmailField: SVNFormFieldDataSource {
   var validationRule: [Rule]? = [RequiredRule(), EmailRule()]
   var keyboardType: UIKeyboardType = UIKeyboardType.emailAddress
   var stockData: String = "foo@bar.com"
-}
-
-private struct TimeField: SVNFormFieldDataSource {
-  var placeholder: String = "Total Time"
-  var apiKey: String = "totalTime"
 }
