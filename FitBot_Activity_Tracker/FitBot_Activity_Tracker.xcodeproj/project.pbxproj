@@ -16,6 +16,7 @@
 		891733182078324700001EAB /* NeedsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891733172078324700001EAB /* NeedsDependency.swift */; };
 		8917331B2078329200001EAB /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331A2078329200001EAB /* AppDependency.swift */; };
 		8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917331E2078333D00001EAB /* ApplicationCoordinator.swift */; };
+		8955E36E207C0F1200B7DDCB /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E36D207C0F1200B7DDCB /* Content.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
@@ -57,6 +58,7 @@
 		89B2BF29207C05A100718913 /* LocalFormTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BF25207C05A000718913 /* LocalFormTheme.swift */; };
 		89B2BF2A207C05A100718913 /* LocalButtonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BF26207C05A000718913 /* LocalButtonDataSource.swift */; };
 		89B2BF2B207C05A100718913 /* LocalFormFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BF27207C05A000718913 /* LocalFormFieldType.swift */; };
+		89B2BF2D207C073C00718913 /* LocalDatePickerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2BF2C207C073C00718913 /* LocalDatePickerType.swift */; };
 		89D45D78207965CB00D3536F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D74207965CA00D3536F /* Roboto-Bold.ttf */; };
 		89D45D79207965CB00D3536F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D75207965CB00D3536F /* Roboto-Regular.ttf */; };
 		89D45D7A207965CB00D3536F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89D45D76207965CB00D3536F /* Roboto-Light.ttf */; };
@@ -81,6 +83,7 @@
 		891733172078324700001EAB /* NeedsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsDependency.swift; sourceTree = "<group>"; };
 		8917331A2078329200001EAB /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		8917331E2078333D00001EAB /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		8955E36D207C0F1200B7DDCB /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		89B2BF25207C05A000718913 /* LocalFormTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFormTheme.swift; sourceTree = "<group>"; };
 		89B2BF26207C05A000718913 /* LocalButtonDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalButtonDataSource.swift; sourceTree = "<group>"; };
 		89B2BF27207C05A000718913 /* LocalFormFieldType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFormFieldType.swift; sourceTree = "<group>"; };
+		89B2BF2C207C073C00718913 /* LocalDatePickerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatePickerType.swift; sourceTree = "<group>"; };
 		89D45D74207965CA00D3536F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		89D45D75207965CB00D3536F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		89D45D76207965CB00D3536F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -174,8 +178,7 @@
 			children = (
 				891732FC20782DC700001EAB /* AppDelegate.swift */,
 				89D45D8B2079823B00D3536F /* Model */,
-				8917331C2078332400001EAB /* Dependency */,
-				8917331620782F7100001EAB /* Coordinating */,
+				8917331C2078332400001EAB /* Dependencies */,
 				891733192078325900001EAB /* Coordinators */,
 				89E4593D20795B1300643F9D /* ViewControllers */,
 				897B67EF207AF8CE002E0120 /* AnimationController */,
@@ -206,16 +209,14 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		8917331C2078332400001EAB /* Dependency */ = {
+		8917331C2078332400001EAB /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				89B2BF17207C057100718913 /* LocalFormData */,
+				8917331620782F7100001EAB /* Coordinating */,
 				89B2BEDD207C052600718913 /* SVNForm */,
 				891733172078324700001EAB /* NeedsDependency.swift */,
-				8917331A2078329200001EAB /* AppDependency.swift */,
-				89E4594320795D3A00643F9D /* Theme.swift */,
 			);
-			path = Dependency;
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		8959E96D207C005D00753F41 /* Frameworks */ = {
@@ -288,6 +289,7 @@
 				89B2BF24207C05A000718913 /* LocalFormDataSource.swift */,
 				89B2BF27207C05A000718913 /* LocalFormFieldType.swift */,
 				89B2BF25207C05A000718913 /* LocalFormTheme.swift */,
+				89B2BF2C207C073C00718913 /* LocalDatePickerType.swift */,
 			);
 			path = LocalFormData;
 			sourceTree = "<group>";
@@ -332,7 +334,11 @@
 		89D45D8B2079823B00D3536F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8917331A2078329200001EAB /* AppDependency.swift */,
+				89E4594320795D3A00643F9D /* Theme.swift */,
+				89B2BF17207C057100718913 /* LocalFormData */,
 				89D45D8C2079825300D3536F /* ActivityState.swift */,
+				8955E36D207C0F1200B7DDCB /* Content.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */,
 				89B2BEFC207C054000718913 /* SVNFormFieldType.swift in Sources */,
 				89B2BF03207C054000718913 /* SVNFormToggleView.swift in Sources */,
+				89B2BF2D207C073C00718913 /* LocalDatePickerType.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
 				89B2BF0F207C054000718913 /* TermsActionSheetPresentable.swift in Sources */,
 				897B67F3207B02CA002E0120 /* PresentReverseAnimator.swift in Sources */,
@@ -488,6 +495,7 @@
 				89B2BF10207C054000718913 /* SVNFormViewController.swift in Sources */,
 				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
+				8955E36E207C0F1200B7DDCB /* Content.swift in Sources */,
 				897B67F7207B0B48002E0120 /* NewActivityVC.swift in Sources */,
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
 				89B2BF28207C05A100718913 /* LocalFormDataSource.swift in Sources */,

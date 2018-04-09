@@ -8,4 +8,4 @@
 
 import Foundation
 /// add your local datastructure that conforms to SVNFormFieldType here
-typealias Credentials = Dictionary<<#pattern#>, String>
+typealias Credentials = Dictionary<LocalFormFieldType, String>

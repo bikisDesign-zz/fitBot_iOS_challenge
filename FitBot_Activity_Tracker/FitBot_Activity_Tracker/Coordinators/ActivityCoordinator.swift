@@ -55,7 +55,13 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
 }
 
 extension ActivityCoordinator: NewActivityViewControllerDelegate {
+  func didValidateAllFields(withCredentials credentials: Credentials) {
+    
+  }
+  
   func dismissNewActivityVC() {
     rootViewController.dismiss(animated: true, completion: nil)
   }
+  
+  
 }

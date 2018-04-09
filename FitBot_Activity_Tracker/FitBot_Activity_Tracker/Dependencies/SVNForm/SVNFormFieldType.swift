@@ -17,10 +17,10 @@ protocol SVNFormField: class, Validatable {
 }
 
 protocol SVNFormViewControllerDataSource {
-  var formData: SVNFormData { get set }
-  var theme: SVNFormTheme { get set }
-  var buttonData: SVNLargeButtonDataSource { get set }
-  var actionSheetData: SVNTermsActionSheetDatasource? { get set }
+  var formData: SVNFormData { get }
+  var theme: SVNFormTheme { get }
+  var buttonData: SVNLargeButtonDataSource { get }
+  var actionSheetData: SVNTermsActionSheetDatasource? { get }
 }
 
 protocol SVNFormFieldType {

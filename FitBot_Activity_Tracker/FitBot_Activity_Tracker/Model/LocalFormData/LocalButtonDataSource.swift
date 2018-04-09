@@ -8,22 +8,19 @@
 
 import UIKit
 
+//The datasource for the button at the bottom of the form
 enum LocalButtonDataSource: SVNLargeButtonDataSource {
-  case <#pattern#>
+  case newActivity
   
   var backgroundColor: UIColor {
     switch self {
-    case <#pattern#>:
-      <#code#>
-    default:
-      <#code#>
+    case .newActivity:
+      return Theme.Colors.teal.color
     }
   }
   
   var textColor: UIColor {
     switch self {
-    case <#pattern#>:
-      <#code#>
     default:
       return UIColor.white
     }
@@ -31,8 +28,6 @@ enum LocalButtonDataSource: SVNLargeButtonDataSource {
   
   var isRounded: Bool {
     switch self {
-    case <#pattern#>:
-      <#code#>
     default:
       return false
     }
@@ -40,8 +35,6 @@ enum LocalButtonDataSource: SVNLargeButtonDataSource {
   
   var shouldDisplayArray: Bool {
     switch self {
-    case <#pattern#>:
-      <#code#>
     default:
       return false
     }
@@ -49,10 +42,8 @@ enum LocalButtonDataSource: SVNLargeButtonDataSource {
 
   var text: String {
     switch self {
-    case <#pattern#>:
-      <#code#>
-    default:
-      <#code#>
+    case .newActivity:
+      return "SAVE"
     }
   }
 }

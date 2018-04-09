@@ -9,14 +9,14 @@
 import UIKit
 
 enum LocalFormDataSource: SVNFormViewControllerDataSource {
-  case <#pattern#>
+  case newActivity
   
   var formData: SVNFormData {
     switch self {
-    case <#pattern#>:
-      <#code#>
-    default:
-      <#code#>
+    case .newActivity:
+      return [LocalFormFieldType.time,
+              LocalFormFieldType.distance,
+              LocalFormFieldType.date]
     }
   }
   
@@ -33,12 +33,10 @@ enum LocalFormDataSource: SVNFormViewControllerDataSource {
   
   var buttonData: SVNLargeButtonDataSource {
     switch self {
-    case <#pattern#>:
-      <#code#>
-    default:
-      <#code#>
+    case .newActivity:
+      return LocalButtonDataSource.newActivity
     }
-    }
+  }
 }
 
 

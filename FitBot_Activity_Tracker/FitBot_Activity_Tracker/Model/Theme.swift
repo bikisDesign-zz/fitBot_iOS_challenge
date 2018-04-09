@@ -19,6 +19,7 @@ struct Theme {
   enum Colors {
     case fitBotRed
     case teal
+    case unfilledTextField
     
     var color: UIColor {
       switch self {
@@ -26,6 +27,8 @@ struct Theme {
         return UIColor(r: 252, g: 57, b:72)
       case .teal:
         return UIColor(r: 38, g: 198, b: 218)
+      case .unfilledTextField:
+        return UIColor(r: 228, g: 228, b: 228)
       }
     }
   }

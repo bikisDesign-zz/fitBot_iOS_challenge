@@ -11,12 +11,25 @@ import DeviceKit
 
 protocol NewActivityViewControllerDelegate: class {
   func dismissNewActivityVC()
+  func didValidateAllFields(withCredentials credentials: Credentials)
 }
 
 final class NewActivityViewController: CoordinatableViewController, AddButtonDelegate {
   weak var delegate: NewActivityViewControllerDelegate?
   
   private lazy var dismissButton = PopButton()
+  
+//  private lazy var formVC: SVNFormViewController = {
+//    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect(x: view.layoutMargins.left, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>))
+//  }()
+//
+  private lazy var formTitle: UILabel = {
+    let label = UILabel()
+    label.text = Content.Text.formTitle.text
+    label.font = Theme.Fonts.title.font
+    return label
+  }()
+  
   
   override func loadView() {
     view = NewActivityBackgroundView()
@@ -30,6 +43,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     dismissButton.delegate = self
     dismissButton.iconImage = #imageLiteral(resourceName: "Icons_Dismiss")
     view.addSubview(dismissButton)
+    view.addSubview(formTitle)
     
     let margins = view.layoutMarginsGuide
     
@@ -37,7 +51,12 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     dismissButton.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
     dismissButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 25).isActive = true
     dismissButton.widthAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
-    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: 25).isActive = true
+    dismissButton.topAnchor.constraint(equalTo: margins.topAnchor, constant: dismissButtonSize / 2).isActive = true
+    
+    formTitle.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
+    formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor, constant: dismissButtonSize).isActive = true
+    formTitle.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+    formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize).isActive = true
   }
   
   

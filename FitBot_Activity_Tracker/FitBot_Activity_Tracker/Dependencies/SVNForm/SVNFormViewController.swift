@@ -8,6 +8,7 @@
 
 import UIKit
 import SVNTextValidator
+import SVNBootstraper
 
 /**
  A View Controller containing a tableview set to the bounds of the viewController
