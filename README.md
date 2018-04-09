@@ -1,9 +1,9 @@
 # Fitbot iOS Coding Challenge
 
-##To Install
-Git Clone
-cd FitBot_Activity_Tracker/FitBot_Activity_Tracker
-run bin/setup
+## To Install
+Git Clone 
+cd FitBot_Activity_Tracker/FitBot_Activity_Tracker  
+carthage bootstrap  
 - This will install a few carthage dependenices
 
 ## Goal
