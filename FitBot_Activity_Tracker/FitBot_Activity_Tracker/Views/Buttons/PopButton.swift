@@ -73,6 +73,12 @@ final class PopButton: UIView, CAAnimationDelegate {
   }
   
   
+  
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool { //pass taps down through circleLayer
+    return circleLayer.path!.contains(layer.convert(point, to: circleLayer))
+  }
+  
+  
   func addTapRecognizer(with target: Any, selector: Selector){
     let tgr = UITapGestureRecognizer(target: target, action: selector)
     addGestureRecognizer(tgr)
