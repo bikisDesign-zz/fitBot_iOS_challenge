@@ -113,11 +113,11 @@ public class SVNFormFieldView: UIView, FinePrintCreatable {
       addSubview(toolTipView!)
       
     } else if fieldType.fieldData.hasDatePicker != nil {
-      toolTipView = SVNFormDisclosureButton(image: #imageLiteral(resourceName: "calendarIcon"))
+      toolTipView = SVNFormDisclosureButton(image: #imageLiteral(resourceName: "Icons_Calendar"))
       addSubview(toolTipView!)
       
     } else if fieldType.fieldData.hasPickerView != nil {
-      toolTipView = SVNFormDisclosureButton(image: #imageLiteral(resourceName: "fa-caret-down"))
+      toolTipView = SVNFormDisclosureButton(image: #imageLiteral(resourceName: "Icons_Dropdown"))
       addSubview(toolTipView!)
     }
   }

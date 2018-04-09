@@ -28,7 +28,7 @@ class SVNFormDisclosureButton: UIView {
   }
   
   private lazy var imageView: UIImageView = {
-    let iv = UIImageView(image: #imageLiteral(resourceName: "tooltip"))
+    let iv = UIImageView()
     iv.contentMode = .scaleAspectFit
     return iv
   }()

@@ -17,10 +17,20 @@ protocol NewActivityViewControllerDelegate: class {
 final class NewActivityViewController: CoordinatableViewController, AddButtonDelegate {
   weak var delegate: NewActivityViewControllerDelegate?
   
-  private lazy var dismissButton = PopButton()
+  private lazy var dismissButton: PopButton = {
+    let button = PopButton()
+    button.delegate = self
+    button.iconImage = #imageLiteral(resourceName: "Icons_Dismiss")
+    button.addTapRecognizer(with: self, selector: #selector(dismissNewActivity))
+    view.addSubview(button)
+    return button
+  }()
   
   private lazy var formVC: SVNFormViewController = {
-    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect(x: view.layoutMargins.left, y: formTitle.frame.origin.y + formTitle.frame.size.height + 25, width: view.frame.width - view.layoutMargins.left * 2, height: SVNFormViewModel.TextFieldCellHeight * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)))
+    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect.zero)
+    form.delegate = self
+    embed(controller: form, into: view)
+    return form
   }()
 
   private lazy var formTitle: UILabel = {
@@ -28,6 +38,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     label.text = Content.Text.formTitle.text
     label.font = Theme.Fonts.title.font
     label.textColor = UIColor.white
+    view.addSubview(label)
     return label
   }()
   
@@ -39,14 +50,10 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     let device = Device()
     let dismissButtonSize = CGFloat(device.diagonal * 8)
     
+    //dont translate autoresizing masks for subviews
     dismissButton.translatesAutoresizingMaskIntoConstraints = false
     formTitle.translatesAutoresizingMaskIntoConstraints = false
-    dismissButton.addTapRecognizer(with: self, selector: #selector(dismissNewActivity))
-    dismissButton.delegate = self
-    dismissButton.iconImage = #imageLiteral(resourceName: "Icons_Dismiss")
-    
-    view.addSubview(dismissButton)
-    view.addSubview(formTitle)
+    formVC.view.translatesAutoresizingMaskIntoConstraints = false
     
     let margins = view.layoutMarginsGuide
     
@@ -61,8 +68,14 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor).isActive = true
     formTitle.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize).isActive = true
+    
+    //formVC constraints
+    formVC.view.heightAnchor.constraint(equalToConstant: SVNFormViewModel.TextFieldCellHeight * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)).isActive = true
+    formVC.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+    formVC.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+    formVC.view.topAnchor.constraint(equalTo: formTitle.bottomAnchor, constant: 15).isActive = true
   }
-  
+
   
   @objc func dismissNewActivity(){
       dismissButton.darkenExpand()

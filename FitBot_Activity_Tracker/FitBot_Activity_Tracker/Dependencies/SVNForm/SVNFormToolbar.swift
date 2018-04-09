@@ -49,8 +49,8 @@ class SVNFormToolBar: UIToolbar {
   func addButtons(){
     let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(toolBarFinished))
     let firstFlexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let upButton = UIBarButtonItem(image: #imageLiteral(resourceName: "upArrow"), landscapeImagePhone: .none, style:.plain, target: self, action: #selector(previousField))
-    let downButton = UIBarButtonItem(image: #imageLiteral(resourceName: "downArrow"), landscapeImagePhone: .none, style: .plain, target: self, action: #selector(nextField))
+    let upButton = UIBarButtonItem(image: UIImage(named: "up"), landscapeImagePhone: .none, style:.plain, target: self, action: #selector(previousField))
+    let downButton = UIBarButtonItem(image: UIImage(named: "down"), landscapeImagePhone: .none, style: .plain, target: self, action: #selector(nextField))
     setItems([doneButton, firstFlexibleSpace, upButton, downButton], animated: true)
     isUserInteractionEnabled = true
   }
