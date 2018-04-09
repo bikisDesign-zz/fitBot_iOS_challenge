@@ -9,7 +9,8 @@
 import UIKit
 
 protocol AddButtonDelegate: class {
-  func transitionAnimationDidFinish()
+  func addButtonDidFinishShrinking()
+  func addButtonDidFinishExpanding()
 }
 
 final class AddButton: UIView, CAAnimationDelegate {
@@ -18,6 +19,7 @@ final class AddButton: UIView, CAAnimationDelegate {
     case isShrinking
     case isExpanding
     case none
+    case isInvisible
   }
   
   private var animationState: AnimationState = .none
@@ -78,7 +80,7 @@ final class AddButton: UIView, CAAnimationDelegate {
                                      width: size, height: size)
     
     iconImageLayer.position = CGPoint(x: iconCenter, y: iconCenter)
-    setIconImage(for: .add)
+    setIconImage(for: .overview) // start up state
   }
   
   
@@ -88,13 +90,20 @@ final class AddButton: UIView, CAAnimationDelegate {
   }
   
   
-  //AddButton Delegate
-  func animateStateChange(for state: ActivityState){
-    print(state)
-    animateCircle(shouldShrink: state == .add) {
-      
+  // action items
+  func shrink(){
+    animateCircle(shouldShrink: true) {
+      self.delegate?.addButtonDidFinishShrinking()
     }
   }
+  
+  func expand(for state: ActivityState){
+    setIconImage(for: state)
+    animateCircle(shouldShrink: false) {
+      self.delegate?.addButtonDidFinishExpanding()
+    }
+  }
+  
 
   // animate circle shrink or expand
   private func animateCircle(shouldShrink: Bool, with callback: @escaping() -> ()){
@@ -129,6 +138,7 @@ final class AddButton: UIView, CAAnimationDelegate {
       self.circleLayer.transform = CATransform3DMakeScale(0, 0, 1)
       return
     }
+    
     if isFirstAnim {
       CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault))
       circleLayer.transform = CATransform3DMakeScale(1.15, 1.15, 1)
@@ -140,7 +150,7 @@ final class AddButton: UIView, CAAnimationDelegate {
   
   
   private func setIconImage(for state: ActivityState){
-    if state == .add {
+    if state == .overview {
       iconImageLayer.contents = #imageLiteral(resourceName: "Icons_Add").cgImage
     } else {
       iconImageLayer.contents = #imageLiteral(resourceName: "Icons_Runner").cgImage

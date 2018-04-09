@@ -8,26 +8,32 @@
 
 import UIKit
 import DeviceKit
+import SwiftEssentials
 
 final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate {
   
   private lazy var addButton: AddButton = AddButton()
   
-  var activityState: ActivityState = .overview {
-    didSet {
-      addButton.animateStateChange(for: activityState)
-    }
-  }
+  var activityState: ActivityState = .overview
+  
+  
+  lazy var newActivityVC: NewActivityViewController = {
+    let vc = NewActivityViewController()
+    embed(controller: vc, into: view)
+    vc.view.frame.origin = CGPoint(x: 0, y: view.frame.height)
+    return vc
+  }()
+  
   
   override func loadView() {
     // set background
-    let background = UIView(frame: navigationController!.view.bounds)
+    let background = UIView()
     background.backgroundColor = UIColor.white
     view = background
     
     // addButton to view
     addButton.translatesAutoresizingMaskIntoConstraints = false
-    addButton.addTapRecognizer(with: self, selector: #selector(changeActivityState))
+    addButton.addTapRecognizer(with: self, selector: #selector(addNewActivity))
     addButton.delegate = self
     view.addSubview(addButton)
     
@@ -42,12 +48,22 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
   }
 
-  @objc private func changeActivityState(){
-    activityState = activityState == .add ? .detail : .add
+  
+  @objc private func addNewActivity(){
+    activityState = activityState == .overview ? .add : .overview
+    addButton.isUserInteractionEnabled = false
+    addButton.shrink()
   }
   
-  func transitionAnimationDidFinish() {
-    print("complete animation")
+  
+  // add button delegate
+  func addButtonDidFinishShrinking() {
+    addButton.expand(for: activityState)
+  }
+  
+  
+  func addButtonDidFinishExpanding() {
+    addButton.isUserInteractionEnabled = true
   }
 }
 
