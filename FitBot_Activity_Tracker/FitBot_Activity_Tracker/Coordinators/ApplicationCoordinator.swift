@@ -20,10 +20,10 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
   
   override func start(with completion: @escaping () -> Void) {
     dependencies = AppDependency()
-    
     super.start(with: completion)
     
-    let vc = ActivitiesViewController()
-    show(vc)
+    let activitiesCoordinator = ActivityCoordinator(rootViewController: rootViewController)
+    activitiesCoordinator.dependencies = dependencies
+    startChild(coordinator: activitiesCoordinator)
   }
 }
