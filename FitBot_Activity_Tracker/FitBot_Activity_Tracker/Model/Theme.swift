@@ -21,6 +21,7 @@ struct Theme {
     case teal
     case unfilledTextField
     
+    
     var color: UIColor {
       switch self {
       case .fitBotRed:
@@ -38,6 +39,7 @@ struct Theme {
     case subtitle
     case body
     case detail
+    case placeholder
 
     var font: UIFont {
       switch self {
@@ -49,6 +51,8 @@ struct Theme {
         return UIFont(name: ApplicationFonts.robotoReg, size: 20)!
       case .detail:
         return UIFont(name: ApplicationFonts.robotoLight, size: 18)!
+      case .placeholder:
+        return UIFont(name: ApplicationFonts.robotoLight, size: 16)!
       }
     }
   }

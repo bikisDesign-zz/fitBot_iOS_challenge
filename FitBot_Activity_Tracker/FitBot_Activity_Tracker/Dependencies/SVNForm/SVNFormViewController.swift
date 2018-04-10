@@ -201,7 +201,7 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
     
     accumulatedY += (SVNLargeButton.standardHeight + (SVNLargeButton.standardPadding * 2) + SVNLargeButton.bottomPadding)
     
-    scrollView.contentSize = CGSize(width: view.frame.width, height: accumulatedY)
+    scrollView.contentSize = CGSize(width: view.bounds.width - SVNLargeButton.standardPadding * 2, height: accumulatedY)
   }
   
   
