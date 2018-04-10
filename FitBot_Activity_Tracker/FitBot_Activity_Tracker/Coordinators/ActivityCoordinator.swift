@@ -41,7 +41,7 @@ final class ActivityCoordinator: NavigationCoordinator, NeedsDependency, UIViewC
 
 extension ActivityCoordinator: ActivitiesViewControllerDelegate {
   func presentNewActivityForm() {
-    let vc = NewActivityViewController()
+    let vc = NewActivityViewController(datasource: .newActivity)
     vc.delegate = self
     let nc = UINavigationController(rootViewController: vc)
     nc.setNavigationBarHidden(true, animated: false)
@@ -56,7 +56,7 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
 
 extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func didValidateAllFields(withCredentials credentials: Credentials) {
-    
+    print(credentials)
   }
   
   func dismissNewActivityVC() {

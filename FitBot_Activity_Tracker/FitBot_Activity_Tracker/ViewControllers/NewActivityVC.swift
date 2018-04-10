@@ -17,6 +17,8 @@ protocol NewActivityViewControllerDelegate: class {
 final class NewActivityViewController: CoordinatableViewController, AddButtonDelegate {
   weak var delegate: NewActivityViewControllerDelegate?
   
+  private var datasource: LocalFormDataSource
+  
   private var formIsAnimating = false
   
   private lazy var dismissButton: PopButton = {
@@ -29,7 +31,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
   }()
   
   private lazy var formVC: SVNFormViewController = {
-    let form = SVNFormViewController(withData: LocalFormDataSource.newActivity, delegate: self, frame: CGRect.zero)
+    let form = SVNFormViewController(withData: datasource, delegate: self, frame: CGRect.zero)
     form.delegate = self
     embed(controller: form, into: view)
     return form
@@ -47,6 +49,11 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
   private var formTopLayoutConstraint: NSLayoutConstraint!
   private var formBottomLayoutConstraint: NSLayoutConstraint!
   
+  init(datasource: LocalFormDataSource) {
+    self.datasource = datasource
+    super.init()
+  }
+  required init?(coder aDecoder: NSCoder) { fatalError() }
   
   override func loadView() {
     view = NewActivityBackgroundView()
@@ -108,7 +115,11 @@ extension NewActivityViewController: SVNFormViewControllerDelegate {
   }
   
   func formWasValidated(withText text: [String]) {
-    
+    var credentials = Credentials()
+    for (index, value) in datasource.formData.enumerated() {
+      credentials[value as! LocalFormFieldType] = text[index]
+    }
+    delegate?.didValidateAllFields(withCredentials: credentials)
   }
   
   func notifyUserOfFailedValidation() {}
