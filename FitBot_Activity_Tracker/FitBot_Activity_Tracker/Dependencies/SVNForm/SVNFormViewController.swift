@@ -100,14 +100,16 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
   fileprivate var previousStaticScrollViewContentOffSet = CGPoint(x: 0, y: 0)
   
   
-  override func viewDidLayoutSubviews() {
+  override func viewDidLayoutSubviews() { // since were using autolayout in the containing class we need to update the frames here as well
     
     scrollView.frame = view.bounds
-    
+    scrollView.contentSize = CGSize(width: view.bounds.width, height: scrollView.contentSize.height)
     for index in 0..<formFields.count {
-      formFields[index].frame = formFieldFrames[index]
+      var formFrame = formFieldFrames[index]
+      formFrame.size.width = view.bounds.width
+      formFields[index].frame = formFrame
     }
-    
+    buttonFrame.size.width = view.bounds.width
     validationButton.frame = buttonFrame
   }
   
@@ -201,7 +203,7 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
     
     accumulatedY += (SVNLargeButton.standardHeight + (SVNLargeButton.standardPadding * 2) + SVNLargeButton.bottomPadding)
     
-    scrollView.contentSize = CGSize(width: view.bounds.width - SVNLargeButton.standardPadding * 2, height: accumulatedY)
+    scrollView.contentSize = CGSize(width: view.bounds.width, height: accumulatedY)
   }
   
   

@@ -72,7 +72,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     formTitle.heightAnchor.constraint(equalToConstant: dismissButtonSize).isActive = true
     formTitle.leadingAnchor.constraint(equalTo: dismissButton.leadingAnchor).isActive = true
     formTitle.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize).isActive = true
+    formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize / 2).isActive = true
     
     //formVC constraints
     formVC.view.heightAnchor.constraint(equalToConstant: (SVNFormViewModel.TextFieldCellHeight + SVNFormViewModel.FieldYpadding) * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)).isActive = true
