@@ -17,6 +17,8 @@ protocol NewActivityViewControllerDelegate: class {
 final class NewActivityViewController: CoordinatableViewController, AddButtonDelegate {
   weak var delegate: NewActivityViewControllerDelegate?
   
+  private var formIsAnimating = false
+  
   private lazy var dismissButton: PopButton = {
     let button = PopButton()
     button.delegate = self
@@ -41,6 +43,9 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     view.addSubview(label)
     return label
   }()
+  
+  private var formTopLayoutConstraint: NSLayoutConstraint!
+  private var formBottomLayoutConstraint: NSLayoutConstraint!
   
   
   override func loadView() {
@@ -70,12 +75,19 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     formTitle.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: dismissButtonSize).isActive = true
     
     //formVC constraints
-    formVC.view.heightAnchor.constraint(equalToConstant: SVNFormViewModel.TextFieldCellHeight * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)).isActive = true
+    formVC.view.heightAnchor.constraint(equalToConstant: (SVNFormViewModel.TextFieldCellHeight + SVNFormViewModel.FieldYpadding) * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)).isActive = true
     formVC.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     formVC.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    formVC.view.topAnchor.constraint(equalTo: formTitle.bottomAnchor, constant: 15).isActive = true
+    formTopLayoutConstraint = formVC.view.topAnchor.constraint(equalTo: formTitle.bottomAnchor, constant: 15)
+    formTopLayoutConstraint.isActive = true
+    formBottomLayoutConstraint = formVC.view.bottomAnchor.constraint(equalTo: margins.bottomAnchor) // dont set this to active
   }
 
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print(formVC.view.frame)
+  }
   
   @objc func dismissNewActivity(){
       dismissButton.darkenExpand()
@@ -91,17 +103,17 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
 
 
 extension NewActivityViewController: SVNFormViewControllerDelegate {
+  func keyboardWillShowNeedTopAndBottomLayoutConstraint() -> (NSLayoutConstraint, NSLayoutConstraint) {
+    return (formTopLayoutConstraint, formBottomLayoutConstraint)
+  }
+  
   func formWasValidated(withText text: [String]) {
     
   }
   
-  func notifyUserOfFailedValidation() {
-    
-  }
+  func notifyUserOfFailedValidation() {}
   
-  func forwardingOnToolTipTap(withData data: SVNFormTermsOverlayDataSource) {
-    
-  }
+  func forwardingOnToolTipTap(withData data: SVNFormTermsOverlayDataSource) {}
   
   func fieldWasValidated(field: SVNFormField) {
     
@@ -113,13 +125,5 @@ extension NewActivityViewController: SVNFormViewControllerDelegate {
   
   func forwarding(_ textField: SVNFormTextField, shouldChangeCharecters range: NSRange, replacement string: String) -> Bool {
     return true
-  }
-  
-  func formWillBeginEditing(completion: @escaping (Bool) -> ()) {
-    
-  }
-  
-  func formWillFinishEditing() {
-    
   }
 }

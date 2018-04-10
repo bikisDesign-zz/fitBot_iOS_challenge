@@ -11,7 +11,7 @@ import UIKit
 // alot of these aren't used in this app but for larger more complex forms they are neccessary
 
 struct LocalFormTheme: SVNFormTheme {
-  var selectedButtonColor: UIColor = { Theme.Colors.teal.color }()
+  var selectedButtonColor: UIColor = { Theme.Colors.fitBotRed.color }()
   var errorColor: UIColor = { UIColor.white }()
   var buttonColor: UIColor = { Theme.Colors.teal.color }()
   var buttonTextColor: UIColor = { UIColor.white }()

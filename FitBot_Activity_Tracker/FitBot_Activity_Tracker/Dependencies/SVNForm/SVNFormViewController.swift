@@ -21,38 +21,37 @@ import SVNBootstraper
  */
 
 protocol SVNFormViewControllerDelegate: class {
-  /// notifies the receiver that the full form was validated
-  /// - Parameter text: A String Array matching the supplied SVNFormViewControllerDataSource in indexing
+  /** notifies the receiver that the full form was validated
+   - Parameter text: A String Array matching the supplied SVNFormViewControllerDataSource in indexing
+ */
   func formWasValidated(withText text: [String])
   
-  /*
+  /**
    Called by the form if validation failed. Can override to perform notifications to the user before presenting errors
    Actual field animation handling should be performed by updating the viewModel's style transformation * Not currently supported *
-   **/
+   */
   func notifyUserOfFailedValidation()
   
-  /// Notifies the receiver when a tool tip has been tapped.
-  /// Is called on the main thread
+  /** Notifies the receiver when a tool tip has been tapped.
+   Is called on the main thread */
   func forwardingOnToolTipTap(withData data: SVNFormTermsOverlayDataSource)
   
-  /// Notifies the receiver that a single field was validated
+  /** Notifies the receiver that a single field was validated */
   func fieldWasValidated(field: SVNFormField)
   
-  /// Notifies the receiver when the scroll view scrolls in a certain direction.
-  /// perform animations here.
-  /// Is executed on the main thread.
+  /** Notifies the receiver when the scroll view scrolls in a certain direction.
+      Perform animations here.
+      Is executed on the main thread. */
   func scrollViewContentOffset(isZero: Bool)
   
-  /// notifies the receiver that a textField's text changed. Perform all changes in input here.
-  /// i.e. zip code length restrictions, hypenation ...ect
+  /** notifies the receiver that a textField's text changed. Perform all changes in input here.
+   i.e. zip code length restrictions, hypenation ...ect */
   func forwarding(_ textField: SVNFormTextField, shouldChangeCharecters range: NSRange, replacement string: String) -> Bool
   
-  /// is called before the form is animated upwards the completion handler must be called in order for the form to animate correctly
-  /// the form will animate upwards to y: 0
-  /// if you need to hide or animate other UI elements as the form is animated upwards call them here.
-  func formWillBeginEditing(completion: @escaping (Bool) -> ())
-  
-  func formWillFinishEditing()
+  /** is called before the form is animated upwards the completion handler must be called in order for the form to animate correctly
+   the form will animate upwards to y: 0
+  if you need to hide or animate other UI elements as the form is animated upwards call them here. */
+  func keyboardWillShowNeedTopAndBottomLayoutConstraint() -> (NSLayoutConstraint, NSLayoutConstraint)
 }
 
 
@@ -62,7 +61,7 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
   
   lazy var scrollView: UIScrollView = {
     let scroll = UIScrollView()
-    scroll.delegate = self
+    scroll.delegate = self as UIScrollViewDelegate
     self.view.addSubview(scroll)
     return scroll
   }()
@@ -77,8 +76,6 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
   
   private lazy var buttonFrame = CGRect()
   
-  fileprivate var fieldYpadding: CGFloat = 15
-  
   lazy var validationButton: SVNLargeButton = {
     let button = SVNLargeButton(frame: CGRect.zero,
                                 theme: viewModel.dataSource.theme,
@@ -88,14 +85,11 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
     return button
   }()
   
-  private var centeredFormFrame: CGRect!
-  
   init(withData dataSource: SVNFormViewControllerDataSource, delegate: SVNFormViewControllerDelegate, frame: CGRect){
     viewModel = SVNFormViewModel(dataSource: dataSource)
     super.init(nibName: nil, bundle: nil)
     self.actionSheetDatasource = dataSource.actionSheetData
-    centeredFormFrame = frame
-    view.frame = centeredFormFrame
+    view.frame = frame
     self.delegate = delegate
   }
   
@@ -180,10 +174,10 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
   
   private func setForm(){
     
-    viewModel.setDelegates(forTextField: self, forDisclosureButton: self,
+    viewModel.setDelegates(forTextField: self as UITextFieldDelegate, forDisclosureButton: self,
                            forSVNTextField: self, forViewModel: self, forFieldView: self)
     
-    var accumulatedY = fieldYpadding
+    var accumulatedY = SVNFormViewModel.FieldYpadding
     
     for i in 0..<viewModel.numberOfFields {
       
@@ -194,7 +188,7 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
       formFieldFrames.append(CGRect(x: SVNLargeButton.standardPadding, y: accumulatedY,
                                     width: view.frame.width - SVNLargeButton.standardPadding * 2, height: height))
       
-      accumulatedY += (height + fieldYpadding)
+      accumulatedY += (height + SVNFormViewModel.FieldYpadding)
       
       scrollView.addSubview(field)
       
@@ -217,42 +211,47 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
     viewModel.validateForm()
   }
   
+  //MARK: keyboard Notification
   @objc func keyboardWillShowOrHide(_ notification: NSNotification) {
-    guard let keyboardEnd = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-      let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double else { return }
+    let userInfo = notification.userInfo!
+    print(notification)
+    print(notification.object ?? "")
     
-    let isPresenting = notification.name == NSNotification.Name.UIKeyboardWillShow
+    // Get information about the animation.
+    let animationDuration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
     
-    if notification.name == NSNotification.Name.UIKeyboardDidHide {
-      UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseIn], animations: {
-        self.view.frame = self.centeredFormFrame
-      }, completion: { (isFinished) in
-        if isFinished {
-          self.delegate.formWillFinishEditing()
-        }
-      })
-      return
-    }
+    let rawAnimationCurveValue = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).uintValue
+    let animationCurve = UIViewAnimationOptions(rawValue: rawAnimationCurveValue)
     
-    guard var formFrame = centeredFormFrame else { return }
+    // Convert the keyboard frame from screen to view coordinates.
+    let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
     
-    if isPresenting {
-      let visibleBottom = keyboardEnd.origin.y
-      formFrame.origin.y = SVNLargeButton.bottomPadding
-      formFrame.size.height = visibleBottom - formFrame.origin.y
-    }
+    let keyboardViewBeginFrame = view.convert(keyboardScreenBeginFrame, from: view.window!)
+    let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window!)
+    print(keyboardViewBeginFrame)
+    print(keyboardViewEndFrame)
+    
+    // Determine how far the keyboard has moved up or down.
+    let originDelta = keyboardViewEndFrame.origin.y - keyboardViewBeginFrame.origin.y
+    print(originDelta)
+    print(keyboardViewEndFrame)
     
     
-    self.delegate.formWillBeginEditing(completion: { (isFinished) in
-      if isFinished {
-        DispatchQueue.main.async {
-          UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseIn], animations: {
-            self.view.frame = formFrame
-          }, completion: nil )
-        }
-      }
-    })
+    
+    // Inform the view that its the layout should be updated.
+    view.setNeedsLayout()
+    
+    // Animate updating the view's layout by calling layoutIfNeeded inside a UIView animation block.
+    let animationOptions: UIViewAnimationOptions = [animationCurve, .beginFromCurrentState]
+    UIView.animate(withDuration: animationDuration, delay: 0, options: animationOptions, animations: {
+      let layoutConstraints = self.delegate.keyboardWillShowNeedTopAndBottomLayoutConstraint()
+      layoutConstraints.0.isActive = false
+      layoutConstraints.1.constant = CGFloat(originDelta)
+      self.view.setNeedsLayout()
+    }, completion: nil)
   }
+  
 }
 
 
@@ -361,7 +360,7 @@ extension SVNFormViewController: SVNFormViewModelDelegate {
   func formWasInvalid(error: [(Validatable, ValidationError)]) {
     for (index, field) in formFields.enumerated() {
       if let _ = error.filter({ ($0.1.field as? UIView)?.superview == field }).first { // if is errored scroll to it
-        scrollView.setContentOffset(CGPoint(x: 0, y: formFields[index].frame.origin.y - fieldYpadding), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0, y: formFields[index].frame.origin.y - SVNFormViewModel.FieldYpadding), animated: true)
         return // then end
       }
     }

@@ -41,7 +41,7 @@ class SVNLargeButton: UIButton {
     get {
       switch DeviceSize.current {
       case .isSmallPhone:
-        return 10.0
+        return 20.0
       default:
         return 20.0
       }

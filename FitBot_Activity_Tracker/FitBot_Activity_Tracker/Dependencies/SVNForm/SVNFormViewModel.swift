@@ -58,6 +58,11 @@ class SVNFormViewModel: NSObject {
     }
   }
   
+  class var FieldYpadding: CGFloat {
+    get {
+      return 15
+    }
+  }
   class func GetFormViewControllerHeight(numberOfFields: Int) -> CGFloat {
     return SVNFormViewModel.TextFieldCellHeight * CGFloat(numberOfFields) + SVNFormViewModel.ButtonSize
   }
