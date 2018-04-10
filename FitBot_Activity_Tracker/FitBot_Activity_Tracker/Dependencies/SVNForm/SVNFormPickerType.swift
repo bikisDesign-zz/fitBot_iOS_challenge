@@ -14,5 +14,5 @@ protocol SVNFormPickerType {
 
 
 protocol SVNFormPickerDataSource {
-  var content: [String] { get set }
+  var content: [[String]] { get }
 }

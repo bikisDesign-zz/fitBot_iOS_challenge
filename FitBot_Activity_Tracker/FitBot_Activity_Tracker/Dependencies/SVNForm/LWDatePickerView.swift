@@ -22,6 +22,12 @@ class LWDatePicker: UIDatePicker {
     self.theme = theme
     self.type = type
     super.init(frame: frame)
+    datePickerMode = type.datePickerMode
+    
+    if type.datePickerMode == .time {
+      setUpTimePicker()
+      return }
+    
     setCalendar()
     setUpDatePicker()
     setDayOfWeekView()
@@ -30,7 +36,6 @@ class LWDatePicker: UIDatePicker {
   
   
   private func setCalendar(){
-    datePickerMode = type.datePickerMode
     setDate(type.minDate, animated: false)
   }
   
@@ -76,14 +81,26 @@ class LWDatePicker: UIDatePicker {
     setValue(theme.buttonColor, forKey: "textColor")
   }
   
+  private func setUpTimePicker(){
+    addTarget(self, action: #selector(timePickerValueChanged), for: .valueChanged)
+    setValue(theme.buttonColor, forKey: "textColor")
+  }
   
-  @objc func datePickerValueChanged(){
+  
+  @objc private func datePickerValueChanged(){
     let dateFormater = DateFormatter()
     dateFormater.dateFormat = "MM/dd/yyyy"
     let dateStr = dateFormater.string(from: date)
     delegate?.datePicker(changedValue: dateStr)
     guard let dayOfWeek = getDayOfWeek() else { return }
     dayOfWeekLabel.text = dayOfWeek
+  }
+  
+  @objc private func timePickerValueChanged(){
+    let df = DateFormatter()
+    df.dateFormat = "hh:mm a"
+    let time = df.string(from: date)
+    delegate?.datePicker(changedValue: time)
   }
 }
 

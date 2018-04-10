@@ -34,12 +34,12 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     tgr.delegate = self
   }
   
-  func setMaxContent(toMax max: String){
-    if let maxIndex = data.content.index(of: max) {
-      data.content.removeSubrange(0..<maxIndex)
-      self.reloadAllComponents()
-    }
-  }
+//  func setMaxContent(toMax max: String){
+//    if let maxIndex = data.content.index(of: max) {
+//      data.content.removeSubrange(0..<maxIndex)
+//      self.reloadAllComponents()
+//    }
+//  }
   
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     return true
@@ -51,7 +51,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
   
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    formPickerDelegate?.formPicker(didSelectValue: data.content[row])
+    formPickerDelegate?.formPicker(didSelectValue: data.content[component][row])
   }
   
   func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
@@ -70,7 +70,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     pickerLabel?.font = theme.pickerFont
     pickerLabel?.adjustsFontSizeToFitWidth = true
     pickerLabel?.textAlignment = NSTextAlignment.center
-    pickerLabel?.text = data.content[row]
+    pickerLabel?.text = data.content[component][row]
     return pickerLabel!
   }
   
@@ -86,10 +86,10 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     let rowHeight = self.rowSize(forComponent: 0).height
     let selectedRowFrame = self.bounds.insetBy(dx: 0.0, dy: (self.frame.height - rowHeight) / 2.0)
     let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self))
-    if userTappedOnSelectedRow {
-      let value = data.content[selectedRow(inComponent: 0)]
-      formPickerDelegate?.formPicker(didSelectValue: value)
-    }
+//    if userTappedOnSelectedRow {
+//      let value = data.content[selectedRow(inComponent: 0)]
+////      formPickerDelegate?.formPicker(didSelectValue: value) // lets just not implemnt this just now
+//    }
   }
 }
 

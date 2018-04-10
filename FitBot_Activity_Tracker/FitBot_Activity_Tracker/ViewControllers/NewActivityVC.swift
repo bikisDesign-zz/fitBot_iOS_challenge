@@ -34,7 +34,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     embed(controller: form, into: view)
     return form
   }()
-
+  
   private lazy var formTitle: UILabel = {
     let label = UILabel()
     label.text = Content.Text.formTitle.text
@@ -78,11 +78,11 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
     formVC.view.heightAnchor.constraint(equalToConstant: (SVNFormViewModel.TextFieldCellHeight + SVNFormViewModel.FieldYpadding) * CGFloat(LocalFormDataSource.newActivity.formData.count) + (SVNLargeButton.standardHeight + SVNLargeButton.standardPadding + SVNLargeButton.bottomPadding * 2)).isActive = true
     formVC.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     formVC.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    formTopLayoutConstraint = formVC.view.topAnchor.constraint(equalTo: formTitle.bottomAnchor, constant: 15)
+    formTopLayoutConstraint = formVC.view.topAnchor.constraint(equalTo: formTitle.bottomAnchor)
     formTopLayoutConstraint.isActive = true
     formBottomLayoutConstraint = formVC.view.bottomAnchor.constraint(equalTo: margins.bottomAnchor) // dont set this to active
   }
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -90,7 +90,7 @@ final class NewActivityViewController: CoordinatableViewController, AddButtonDel
   }
   
   @objc func dismissNewActivity(){
-      dismissButton.darkenExpand()
+    dismissButton.darkenExpand()
   }
   
   

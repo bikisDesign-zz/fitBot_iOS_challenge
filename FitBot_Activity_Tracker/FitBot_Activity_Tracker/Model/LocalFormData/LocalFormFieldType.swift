@@ -20,7 +20,7 @@ enum LocalFormFieldType: SVNFormFieldType {
   var fieldData: SVNFormFieldDataSource {
     switch self {
     case .time:
-      return TimeField()
+      return TotalTimeField()
     case .distance:
       return DistanceField()
     case .date:
@@ -31,11 +31,11 @@ enum LocalFormFieldType: SVNFormFieldType {
 
 
 
-private struct TimeField: SVNFormFieldDataSource {
+private struct TotalTimeField: SVNFormFieldDataSource {
   var placeholder: String = "Total Time"
   var apiKey: String = "activity_time"
   var validationRule: [Rule]? = [RequiredRule()]
-  var keyboardType: UIKeyboardType = UIKeyboardType.default
+  var hasPickerView: SVNFormPickerType? = LocalPickerType.totalTime
 }
 
 private struct DistanceField: SVNFormFieldDataSource {

@@ -109,7 +109,8 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
       formFrame.size.width = view.bounds.width
       formFields[index].frame = formFrame
     }
-    buttonFrame.size.width = view.bounds.width
+    buttonFrame.size.width = view.bounds.width / 2
+    buttonFrame.origin.x = (view.bounds.width - view.bounds.width / 2) / 2
     validationButton.frame = buttonFrame
   }
   
