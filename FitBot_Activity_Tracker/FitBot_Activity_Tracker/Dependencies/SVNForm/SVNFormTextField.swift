@@ -24,7 +24,7 @@ final class SVNFormTextField: UITextField, SVNFormField {
   
   class var StandardHeight: CGFloat {
     get {
-      return SVNLargeButton.standardHeight - SVNFormPlaceholderLabel.StandardHeight
+      return SVNLargeButton.standardHeight - (SVNFormPlaceholderLabel.StandardHeight - 10) // this is hacky but this library needs bit of work
     }
   }
   

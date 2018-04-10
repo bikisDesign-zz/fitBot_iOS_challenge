@@ -185,8 +185,8 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
       
       let height = viewModel.getHeightForCell(atRow: i)
       
-      formFieldFrames.append(CGRect(x: SVNLargeButton.standardPadding, y: accumulatedY,
-                                    width: view.frame.width - SVNLargeButton.standardPadding * 2, height: height))
+      formFieldFrames.append(CGRect(x: 0, y: accumulatedY,
+                                    width: view.bounds.width, height: height))
       
       accumulatedY += (height + SVNFormViewModel.FieldYpadding)
       
@@ -196,8 +196,8 @@ class SVNFormViewController: UIViewController, KeyboardNotifiable {
     }
     
     
-    buttonFrame = CGRect(x: SVNLargeButton.standardPadding, y: accumulatedY + SVNLargeButton.standardPadding,
-                         width: view.frame.width - SVNLargeButton.standardPadding * 2, height: SVNLargeButton.standardHeight)
+    buttonFrame = CGRect(x: 0, y: accumulatedY + SVNLargeButton.standardPadding,
+                         width: view.bounds.width, height: SVNLargeButton.standardHeight)
     
     accumulatedY += (SVNLargeButton.standardHeight + (SVNLargeButton.standardPadding * 2) + SVNLargeButton.bottomPadding)
     

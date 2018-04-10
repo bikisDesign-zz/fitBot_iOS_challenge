@@ -19,7 +19,7 @@ struct LocalFormTheme: SVNFormTheme {
   var placeholderTextColor: UIColor = { Theme.Colors.unfilledTextField.color }()
   var unavailableButtonColor: UIColor = { UIColor.gray }()
   var checkMarkViewBorderColor: UIColor = { UIColor.gray }()
-  var buttonFont: UIFont = { Theme.Fonts.subtitle.font }()
+  var buttonFont: UIFont = { Theme.Fonts.body.font }()
   var pickerFont: UIFont = { Theme.Fonts.body.font }()
   var placeholderFont: UIFont = { Theme.Fonts.placeholder.font }()
   var finePrintFont: UIFont = { Theme.Fonts.body.font }()
