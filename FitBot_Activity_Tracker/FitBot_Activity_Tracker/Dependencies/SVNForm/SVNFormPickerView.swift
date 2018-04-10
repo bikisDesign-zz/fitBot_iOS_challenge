@@ -46,7 +46,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
   }
   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
+    return data.content.count
   }
   
   
@@ -55,7 +55,7 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
   }
   
   func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-    return frame.width
+    return frame.width / CGFloat(data.content.count)
   }
   
   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -63,9 +63,9 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     if pickerLabel == nil {
       pickerLabel = UILabel()
     }
-    let frame = CGRect(x: pickerLabel!.frame.origin.x + 10,
+    let frame = CGRect(x: pickerLabel!.frame.origin.x,
                        y: pickerLabel!.frame.origin.y,
-                       width: pickerLabel!.frame.width - 20, height: pickerLabel!.frame.height)
+                       width: pickerLabel!.frame.width, height: pickerLabel!.frame.height)
     pickerLabel?.frame = frame
     pickerLabel?.font = theme.pickerFont
     pickerLabel?.adjustsFontSizeToFitWidth = true
@@ -79,13 +79,13 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
   }
   
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return data.content.count
+    return data.content[component].count
   }
   
   @objc func pickerTapped(_ sender: UITapGestureRecognizer){
-    let rowHeight = self.rowSize(forComponent: 0).height
-    let selectedRowFrame = self.bounds.insetBy(dx: 0.0, dy: (self.frame.height - rowHeight) / 2.0)
-    let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self))
+//    let rowHeight = self.rowSize(forComponent: 0).height
+//    let selectedRowFrame = self.bounds.insetBy(dx: 0.0, dy: (self.frame.height - rowHeight) / 2.0)
+//    let userTappedOnSelectedRow = selectedRowFrame.contains(sender.location(in: self))
 //    if userTappedOnSelectedRow {
 //      let value = data.content[selectedRow(inComponent: 0)]
 ////      formPickerDelegate?.formPicker(didSelectValue: value) // lets just not implemnt this just now
