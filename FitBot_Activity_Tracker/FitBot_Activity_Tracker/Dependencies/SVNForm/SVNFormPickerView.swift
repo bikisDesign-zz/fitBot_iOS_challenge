@@ -33,13 +33,8 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     addGestureRecognizer(tgr)
     tgr.delegate = self
   }
-  
-//  func setMaxContent(toMax max: String){
-//    if let maxIndex = data.content.index(of: max) {
-//      data.content.removeSubrange(0..<maxIndex)
-//      self.reloadAllComponents()
-//    }
-//  }
+
+ 
   
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     return true
@@ -51,7 +46,12 @@ class SVNFormPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
   
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    formPickerDelegate?.formPicker(didSelectValue: data.content[component][row])
+    var total = ""
+    for i in 0..<data.content.count {
+      let selectedRowForComponent = pickerView.selectedRow(inComponent: i)
+      total.append("\(data.content[i][selectedRowForComponent]) ")
+    }
+    formPickerDelegate?.formPicker(didSelectValue: total)
   }
   
   func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {

@@ -23,6 +23,6 @@ enum LocalPickerType: SVNFormPickerType {
 
 private struct TotalTime: SVNFormPickerDataSource {
   var content: [[String]] {
-    return [(1...24).map{( String($0) )}, ["Hr"], (1...24).map{( String($0) )}, ["Min"]]
+    return [(1...24).map{( String($0) )}, ["Hr"], (1...60).map{( String($0) )}, ["Min"]]
   }
 }
