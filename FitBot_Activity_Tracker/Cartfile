@@ -3,3 +3,4 @@ github "Alamofire/Alamofire" ~> 4.4
 github "https://github.com/sevenapps/SVNShapesManager.git" "master"
 github "https://github.com/bikisDesign/BDTextValidator" "master"
 github "https://github.com/cyrkus/SVNTheme" "master"
+github "OAuthSwift/OAuthSwift" ~> 1.2.0

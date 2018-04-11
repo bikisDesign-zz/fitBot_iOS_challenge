@@ -22,8 +22,8 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
     dependencies = AppDependency()
     super.start(with: completion)
     
-    let activitiesCoordinator = ActivityCoordinator(rootViewController: rootViewController)
-    activitiesCoordinator.dependencies = dependencies
-    startChild(coordinator: activitiesCoordinator)
+    let activityCoordinator = ActivityCoordinator(rootViewController: rootViewController)
+    activityCoordinator.dependencies = dependencies
+    startChild(coordinator: activityCoordinator)
   }
 }

@@ -14,4 +14,10 @@ struct Activity {
   var time: String
   var date: String
   var distance: String
+  
+  init(json: JSON){
+    time = json[StravaAPIKey.durationInSeconds] as? String ?? ""
+    date = json[StravaAPIKey.startDate] as? String ?? ""
+    distance = json[StravaAPIKey.distanceInMeters] as? String ?? ""
+  }
 }
