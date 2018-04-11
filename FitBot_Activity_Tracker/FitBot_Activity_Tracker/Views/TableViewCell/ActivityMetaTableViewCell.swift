@@ -1,5 +1,5 @@
 //
-//  ActivitesMetaTableViewCell.swift
+//  ActivityMetaTableViewCell.swift
 //  FitBot_Activity_Tracker
 //
 //  Created by Aaron bikis on 4/10/18.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftEssentials
 
-final class ActivitesMetaTableViewCell: UITableViewCell, ReusableView {
+final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   private lazy var dateLabel: UILabel = self.labelFactory(isDate: true)
   
   private lazy var distanceLabel: UILabel = self.labelFactory(isDate: false)

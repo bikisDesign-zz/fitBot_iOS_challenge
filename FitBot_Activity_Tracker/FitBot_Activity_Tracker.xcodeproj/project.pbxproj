@@ -21,7 +21,7 @@
 		8955E372207C600300B7DDCB /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E371207C600300B7DDCB /* Networking.swift */; };
 		8955E374207D9B8600B7DDCB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E373207D9B8600B7DDCB /* Activity.swift */; };
 		8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */; };
-		8955E378207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */; };
+		8955E378207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
@@ -93,7 +93,7 @@
 		8955E371207C600300B7DDCB /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8955E373207D9B8600B7DDCB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDataSource.swift; sourceTree = "<group>"; };
-		8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitesMetaTableViewCell.swift; sourceTree = "<group>"; };
+		8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMetaTableViewCell.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		8955E379207D9CE800B7DDCB /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */,
+				8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 				89B2BEF8207C054000718913 /* SVNFormPlaceholderLabel.swift in Sources */,
 				89B2BF02207C054000718913 /* SVNFormDisclosureButton.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
-				8955E378207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift in Sources */,
+				8955E378207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift in Sources */,
 				89B2BEFA207C054000718913 /* SVNFormViewModel.swift in Sources */,
 				89B2BF07207C054000718913 /* SVNToggleType.swift in Sources */,
 				897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */,

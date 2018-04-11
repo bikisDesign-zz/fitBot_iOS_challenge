@@ -19,7 +19,18 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   
   weak var delegate: ActivitiesViewControllerDelegate?
   
+  var activitiesDatasource: ActivitiesDataSource?
+  
   private lazy var addButton = PopButton()
+  
+  private lazy var activitiesTableView: UITableView = {
+    let tv = UITableView(frame: CGRect.zero)
+    tv.delegate = self
+    tv.dataSource = activitiesDatasource
+    tv.register(ActivityMetaTableViewCell.self)
+    view.addSubview(tv)
+    return tv
+  }()
   
   override func loadView() {
     view = UIView()
@@ -43,6 +54,7 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
   }
   
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     if addButton.animationState == .isHidden { // if returning after dismissing the new activity VC this button will need to be refreshed
@@ -61,6 +73,15 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     DispatchQueue.main.async {
       self.delegate?.presentNewActivityForm()
     }
+  }
+}
+extension ActivitiesViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    // navigate to details
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 45
   }
 }
 

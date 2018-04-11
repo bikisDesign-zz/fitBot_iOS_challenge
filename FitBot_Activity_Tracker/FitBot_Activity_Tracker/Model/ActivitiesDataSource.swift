@@ -13,9 +13,10 @@ final class ActivitiesDataSource: NSObject, UITableViewDataSource {
   lazy var postedActivites: Activites = Activites()
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: ActivitesMetaTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-//    let subtitle = postedActivites[indexPath.row].trackName ?? results[indexPath.row].collectionName
-//    cell.set(title: postedActivites[indexPath.row].artist, subtitle: subtitle ?? "")
+    let cell: ActivityMetaTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+    let date = postedActivites[indexPath.row].date
+    let distance = postedActivites[indexPath.row].distance
+    cell.set(date: date, distance: distance)
     return cell
   }
   

@@ -13,7 +13,7 @@ import SVNBootstraper
  A Model containing the thematic elements of the app, including:
  - Colors
  - Fonts
-
+ 
  */
 struct Theme {
   enum Colors {
@@ -40,7 +40,7 @@ struct Theme {
     case body
     case detail
     case placeholder
-
+    
     var font: UIFont {
       switch self {
       case .title:
@@ -56,15 +56,12 @@ struct Theme {
       }
     }
   }
-  
 }
-
-
-
-
-private struct ApplicationFonts {
-  static let robotoReg: String =  "Roboto-Regular"
-  static let robotoLight: String = "Roboto-Light"
-  static let robotoMed: String = "Roboto-Medium"
-  static let robotBold: String = "Roboto-Bold"
+  
+  
+  private struct ApplicationFonts {
+    static let robotoReg: String =  "Roboto-Regular"
+    static let robotoLight: String = "Roboto-Light"
+    static let robotoMed: String = "Roboto-Medium"
+    static let robotBold: String = "Roboto-Bold"
 }
