@@ -19,6 +19,9 @@
 		8955E36E207C0F1200B7DDCB /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E36D207C0F1200B7DDCB /* Content.swift */; };
 		8955E370207C4DED00B7DDCB /* LocalPickerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E36F207C4DED00B7DDCB /* LocalPickerType.swift */; };
 		8955E372207C600300B7DDCB /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E371207C600300B7DDCB /* Networking.swift */; };
+		8955E374207D9B8600B7DDCB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E373207D9B8600B7DDCB /* Activity.swift */; };
+		8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */; };
+		8955E378207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
@@ -88,6 +91,9 @@
 		8955E36D207C0F1200B7DDCB /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		8955E36F207C4DED00B7DDCB /* LocalPickerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPickerType.swift; sourceTree = "<group>"; };
 		8955E371207C600300B7DDCB /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		8955E373207D9B8600B7DDCB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDataSource.swift; sourceTree = "<group>"; };
+		8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitesMetaTableViewCell.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
@@ -223,6 +229,14 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		8955E379207D9CE800B7DDCB /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8955E377207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		8959E96D207C005D00753F41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,7 +355,9 @@
 			children = (
 				8917331A2078329200001EAB /* AppDependency.swift */,
 				8955E371207C600300B7DDCB /* Networking.swift */,
+				8955E373207D9B8600B7DDCB /* Activity.swift */,
 				89E4594320795D3A00643F9D /* Theme.swift */,
+				8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */,
 				89B2BF17207C057100718913 /* LocalFormData */,
 				89D45D8C2079825300D3536F /* ActivityState.swift */,
 				8955E36D207C0F1200B7DDCB /* Content.swift */,
@@ -361,6 +377,7 @@
 		89E4594020795BCA00643F9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8955E379207D9CE800B7DDCB /* TableViewCell */,
 				897B67EA207ACC15002E0120 /* Backgrounds */,
 				89D45D8520797B9500D3536F /* Storyboards */,
 				89D45D8A2079807200D3536F /* Buttons */,
@@ -482,11 +499,13 @@
 				89B2BEF8207C054000718913 /* SVNFormPlaceholderLabel.swift in Sources */,
 				89B2BF02207C054000718913 /* SVNFormDisclosureButton.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
+				8955E378207D9CE100B7DDCB /* ActivitesMetaTableViewCell.swift in Sources */,
 				89B2BEFA207C054000718913 /* SVNFormViewModel.swift in Sources */,
 				89B2BF07207C054000718913 /* SVNToggleType.swift in Sources */,
 				897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */,
 				89B2BEFC207C054000718913 /* SVNFormFieldType.swift in Sources */,
 				89B2BF03207C054000718913 /* SVNFormToggleView.swift in Sources */,
+				8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */,
 				8955E370207C4DED00B7DDCB /* LocalPickerType.swift in Sources */,
 				89B2BF2D207C073C00718913 /* LocalDatePickerType.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
@@ -524,6 +543,7 @@
 				89B2BEFB207C054000718913 /* LWDatePickerView.swift in Sources */,
 				89B2BF04207C054000718913 /* SVNLargeButton.swift in Sources */,
 				89B2BEFE207C054000718913 /* SVNFormPickerView.swift in Sources */,
+				8955E374207D9B8600B7DDCB /* Activity.swift in Sources */,
 				8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
