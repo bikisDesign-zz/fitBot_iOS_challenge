@@ -1,6 +1,3 @@
-[submodule "Carthage/Checkouts/Alamofire"]
-	path = FitBot_Activity_Tracker/Carthage/Checkouts/Alamofire
-	url = https://github.com/Alamofire/Alamofire.git
 [submodule "Carthage/Checkouts/DeviceKit"]
 	path = FitBot_Activity_Tracker/Carthage/Checkouts/DeviceKit
 	url = https://github.com/dennisweissmann/DeviceKit.git
