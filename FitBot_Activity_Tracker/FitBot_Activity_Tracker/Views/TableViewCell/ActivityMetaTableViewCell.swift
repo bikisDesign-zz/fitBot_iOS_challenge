@@ -51,8 +51,8 @@ final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   }
   
   
-  func set(date: String, distance: String){
+  func set(date: String, distance: Int){
     dateLabel.text = date
-    distanceLabel.text = distance
+    distanceLabel.text = String(distance)
   }
 }

@@ -19,7 +19,7 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
   
   
   override func start(with completion: @escaping () -> Void) {
-    dependencies = AppDependency(networking: Networking())
+    dependencies = AppDependency(networking: Networking(), strava: Strava())
     super.start(with: completion)
     let activityCoordinator = ActivityCoordinator(rootViewController: rootViewController)
     activityCoordinator.dependencies = dependencies
