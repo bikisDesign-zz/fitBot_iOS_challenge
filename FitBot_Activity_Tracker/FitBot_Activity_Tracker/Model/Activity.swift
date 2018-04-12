@@ -16,10 +16,15 @@ struct Activity {
   var distance: Int
   var parsedTime: String?
   
-  init(json: JSON){
-    time = json[Strava.Key.durationInSeconds] as? Int ?? 0
-    date = json[Strava.Key.startDate] as? String ?? ""
-    distance = json[Strava.Key.distanceInMeters] as? Int ?? 0
+  init?(json: JSON){
+    if let time = json[Strava.Key.durationInSeconds] as? Int,
+      let date = json[Strava.Key.startDate] as? String,
+      let distance = json[Strava.Key.distanceInMeters] as? Int {
+      self.time = time
+      self.distance = distance
+      self.date = date
+    }
+    return nil
   }
   
   // parse form data for API
@@ -29,7 +34,7 @@ struct Activity {
     guard let hoursInSec = Int(parsedTime[0]),
       let secs =  Int(parsedTime[1]) else { print("issue parsing time"); return nil }
     self.time = hoursInSec * 60 + secs
-
+    
     
     guard let doubleDist = Double(distance) else { return nil }
     self.distance = Int(doubleDist * 0.305) // convert to meters
@@ -55,7 +60,7 @@ struct Activity {
   }
   
   func getPrettyDistance() -> String {
-    return "\(Double(distance) * 3.28)" // convert to feet
+    return "\(Int(Double(distance) * 3.28))" // convert to feet
   }
   
   
@@ -63,18 +68,27 @@ struct Activity {
   func convert(date: String, toStrava: Bool) -> String {
     let dateFormater = DateFormatter()
     dateFormater.dateFormat = "MM/dd/yyyy"
-    
-    let ISO8601formatter = DateFormatter()
-    ISO8601formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-    ISO8601formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    ISO8601formatter.locale = Locale(identifier: "en_US_POSIX")
+    let ISO8601formatter = getiso8601Formatter()
     
     if toStrava {
       let localDate = dateFormater.date(from: date)
+      
       return ISO8601formatter.string(from: localDate!)
     } else {
       let stravaDate = ISO8601formatter.date(from: date)
       return dateFormater.string(from: stravaDate!)
     }
+  }
+  
+  func getDate() -> Date {
+    return getiso8601Formatter().date(from: date)!
+  }
+  
+  private func getiso8601Formatter() -> DateFormatter {
+    let ISO8601formatter = DateFormatter()
+    ISO8601formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+    ISO8601formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    ISO8601formatter.locale = Locale(identifier: "en_US_POSIX")
+    return ISO8601formatter
   }
 }

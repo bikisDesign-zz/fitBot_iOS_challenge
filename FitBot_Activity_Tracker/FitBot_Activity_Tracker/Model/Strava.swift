@@ -9,9 +9,10 @@
 import Foundation
 
 struct Strava {
-  static let authorizeURL: String = "https://www.strava.com/oauth/authorize?client_id=24730&response_type=code&redirect_uri=https://com.fitbot-activity-tracker&approval_prompt=force"
+  static let authorizeURL: String = "https://www.strava.com/oauth/authorize?client_id=24730&response_type=code&redirect_uri=https://com.fitbot-activity-tracker&approval_prompt=force&scope=write"
   static let oauthURL: String = "https://www.strava.com/oauth/token?"
-  static let activitiesURL: String = "https://www.strava.com/api/v3/athlete?"
+  static let athleteURL: String = "https://www.strava.com/api/v3/activities?"
+  static let activitiesURL: String = "https://www.strava.com/api/v3/athlete/activities?per_page=200&"
   var code: String?
   
   var acessToken: String?
@@ -28,6 +29,8 @@ struct Strava {
    OAuth Keys
    */
   struct Key {
+    static let name: String = "name"
+    static let type: String = "type"
     static let durationInSeconds: String = "elapsed_time"
     static let distanceInMeters: String = "distance"
     static let startDate: String = "start_date_local"

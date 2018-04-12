@@ -12,6 +12,7 @@ import SVNBootstraper
 
 protocol StravaAuthViewControllerDelegate: class {
   func received(code: String)
+  func cacelAuth()
 }
 final class StravaAuthViewController: CoordinatableViewController {
   
@@ -29,6 +30,14 @@ final class StravaAuthViewController: CoordinatableViewController {
     view.addSubview(authWebView)
     let req = URLRequest(url: URL(string: Strava.authorizeURL)!)
     authWebView.loadRequest(req)
+    
+    let barbuttonitem = UIBarButtonItem(image: #imageLiteral(resourceName: "Icons_Dismiss_Dark"), style: .plain, target: self, action: #selector(didTapNavDismiss))
+    navigationItem.leftBarButtonItem = barbuttonitem
+    barbuttonitem.tintColor = Theme.Colors.offBlack.color
+  }
+  
+  @objc func didTapNavDismiss(){
+    delegate?.cacelAuth()
   }
 }
 

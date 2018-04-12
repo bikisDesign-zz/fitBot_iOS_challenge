@@ -31,18 +31,51 @@ final class Networking: NSObject {
   
   func post(activity: Activity, token: String, callback: @escaping (Bool) -> ()) {
     let params: JSON = [Strava.Key.distanceInMeters: activity.distance,
+                        Strava.Key.name: "activity_tracker",
+                        Strava.Key.type: "Run",
                         Strava.Key.startDate: activity.date,
                         Strava.Key.durationInSeconds: activity.time]
-    let url = Strava.activitiesURL.appending(Strava.Key.accessToken.appending("=\(token)"))
+    let url = Strava.athleteURL.appending(Strava.Key.accessToken.appending("=\(token)"))
     request(withParams: params, url: url) { (json) in
-      if let response = json?["response"] as? Int {
-        if response == 200 {
+      if json?["name"] as? String == "activity_tracker" {
           callback(true)
           return
         }
-      }
       callback(false)
     }
+  }
+  
+  func getPostedActivties(token: String, callback: @escaping (JSON?) -> ()){
+    let url = Strava.activitiesURL.appending(Strava.Key.accessToken.appending("=\(token)"))
+    var request = URLRequest(url: URL(string: url)!)
+    request.httpMethod = "GET"
+    let session = URLSession.shared
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    
+    let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+      
+      guard error == nil, let data = data else {
+        print(error?.localizedDescription)
+        callback(nil)
+        return // handle this error if there is one
+      }
+      
+      do {
+        //create json object from data
+        if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSON {
+          callback(json)
+        }
+      } catch let error {
+        if let response = response as? HTTPURLResponse {
+          if response.statusCode == 200 {
+            callback(["response": 200])
+          }
+        }
+        print(error.localizedDescription)
+      }
+    })
+    task.resume()
   }
   
   private func request(withParams params: JSON, url: String, callback: @escaping (JSON?) -> ()){
@@ -81,6 +114,7 @@ final class Networking: NSObject {
     })
     task.resume()
   }
+  
   
   
   

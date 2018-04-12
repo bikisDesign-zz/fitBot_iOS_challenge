@@ -54,6 +54,8 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
       }
       return
     }
+    
+    // present newActivityVC with custom transition
     let vc = NewActivityViewController(datasource: .newActivity)
     vc.delegate = self
     let nc = UINavigationController(rootViewController: vc)
@@ -100,6 +102,10 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
 }
 
 extension ActivityCoordinator: StravaAuthViewControllerDelegate {
+  func cacelAuth() {
+    rootViewController.dismiss(animated: true, completion: nil)
+  }
+  
   
   func received(code: String) {
     dependencies?.strava.code = code // save the code in temp
@@ -107,6 +113,22 @@ extension ActivityCoordinator: StravaAuthViewControllerDelegate {
       if let accessToken = accessToken {
         self.dependencies?.strava.acessToken = accessToken // save the token in temp
         self.rootViewController.dismiss(animated: true, completion: nil)
+        self.dependencies?.networking.getPostedActivties(token: accessToken, callback: { (json) in
+          
+          guard let json = json else { return } // no activities
+          
+          var postedActivities = Activites()
+          json.forEach({ (key: String, value: Any?) in
+            if let activityJSON = value as? JSON,
+              let activity = Activity(json: activityJSON) {
+              postedActivities.append(activity)
+            }
+          })
+          
+          postedActivities.sort(by: { (lhs, rhs) -> Bool in
+            return lhs.getDate().compare(rhs.getDate()) == .orderedAscending
+          })
+        })
       }
     })
   }

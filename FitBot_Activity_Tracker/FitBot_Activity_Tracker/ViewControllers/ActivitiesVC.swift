@@ -60,18 +60,11 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.widthAnchor.constraint(equalToConstant: addButtonSize).isActive = true
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
     
-    
+    //Set TableView Constraints
     activitiesTableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 45).isActive = true
     activitiesTableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
     activitiesTableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
     activitiesTableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    
-    let activity = Activity(date: "3/4/18", time: 1232, distance: 3655)
-    let activity1 = Activity(date: "3/4/18", time: 1232, distance: 3655)
-    let activity2 = Activity(date: "3/4/18", time: 1232, distance: 3655)
-    activitiesDatasource.postedActivites.append(activity)
-    activitiesDatasource.postedActivites.append(activity1)
-    activitiesDatasource.postedActivites.append(activity2)
   }
   
 
