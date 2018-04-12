@@ -63,6 +63,7 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   }
   
   
+  
   //MARK: AddButton Delegates
   @objc private func addNewActivity(){
     addButton.shrink()

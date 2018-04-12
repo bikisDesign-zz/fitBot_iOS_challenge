@@ -10,4 +10,5 @@ import Foundation
 
 struct AppDependency {
   var networking: Networking
+  var strava: Strava
 }

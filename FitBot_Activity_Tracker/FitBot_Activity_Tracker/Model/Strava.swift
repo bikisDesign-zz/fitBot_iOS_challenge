@@ -10,12 +10,18 @@ import Foundation
 
 struct Strava {
   static let authorizeURL: String = "https://www.strava.com/oauth/authorize?client_id=24730&response_type=code&redirect_uri=https://com.fitbot-activity-tracker&approval_prompt=force"
+  static let oauthURL: String = "https://www.strava.com/oauth/token?"
+  
+  var code: String?
+  
+  var acessToken: String?
   
   struct Credential {
     static let secret: String = "fe2ba8fc513e93d3ba740a13e4795cd24f14f50b"
     static let token: String = "d3366318b7178759282d4f0e76ce3d5aae4926e4"
     static let clientId: String = "24730"
   }
+  
   
   
   /**
@@ -31,5 +37,7 @@ struct Strava {
     static let scope: String = "scope"
     static let approvalPrompt: String = "approval_prompt"
     static let responseType: String = "response_type"
+    static let clientSecret: String = "client_secret"
+    static let code: String = "code"
   }
 }

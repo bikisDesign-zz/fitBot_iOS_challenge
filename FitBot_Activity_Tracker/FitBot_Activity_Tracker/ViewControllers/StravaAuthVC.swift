@@ -37,6 +37,7 @@ extension StravaAuthViewController: UIWebViewDelegate {
   func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
     guard let url = request.url,
       let fullQuery = url.query else { return true }
+    print("requestURL :", url)
     let queryKV = fullQuery.components(separatedBy: "&")
     queryKV.forEach({
       let kv = $0.components(separatedBy: "=")

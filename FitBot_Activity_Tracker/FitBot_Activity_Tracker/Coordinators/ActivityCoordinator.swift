@@ -41,26 +41,34 @@ final class ActivityCoordinator: NavigationCoordinator, NeedsDependency, UIViewC
 
 extension ActivityCoordinator: ActivitiesViewControllerDelegate {
   func addNewActivity(sender: ActivitiesViewController) {
-    sender.show(alertWithType: Content.AuthorizeStravaAlert()) { (shouldAuth) in
-      if shouldAuth {
-        let wv = StravaAuthViewController()
-        wv.delegate = self
-        self.show(wv)
+    if dependencies?.strava.acessToken == nil { // user is not logged in
+      
+      sender.show(alertWithType: Content.AuthorizeStravaAlert()) { (shouldAuth) in
+        if shouldAuth {
+          
+          let wv = StravaAuthViewController()
+          let nc = UINavigationController(rootViewController: wv)
+          wv.delegate = self
+          self.present(nc)
+        }
       }
+      return
     }
+    let vc = NewActivityViewController(datasource: .newActivity)
+    vc.delegate = self
+    let nc = UINavigationController(rootViewController: vc)
+    nc.setNavigationBarHidden(true, animated: false)
+    nc.transitioningDelegate = self
+    present(nc)
   }
 }
 
-//    let vc = NewActivityViewController(datasource: .newActivity)
-//    vc.delegate = self
-//    let nc = UINavigationController(rootViewController: vc)
-//    nc.setNavigationBarHidden(true, animated: false)
-//    nc.transitioningDelegate = self
-//    present(nc)
 
 extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func didValidateAllFields(withCredentials credentials: Credentials) {
-    print(credentials)
+    let activity = Activity(date: credentials[LocalFormFieldType.date]!,
+                            time: credentials[LocalFormFieldType.time]!,
+                            distance: credentials[LocalFormFieldType.distance]!)
   }
   
   func dismissNewActivityVC() {
@@ -71,6 +79,13 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
 extension ActivityCoordinator: StravaAuthViewControllerDelegate {
   
   func received(code: String) {
-    print(code)
+    
+    dependencies?.strava.code = code // save the code in temp
+    dependencies?.networking.requestAcessToken(code: code, callback: { (accessToken) in
+      if let accessToken = accessToken {
+        self.dependencies?.strava.acessToken = accessToken // save the token in temp
+        self.rootViewController.dismiss(animated: true, completion: nil)
+      }
+    })
   }
 }
