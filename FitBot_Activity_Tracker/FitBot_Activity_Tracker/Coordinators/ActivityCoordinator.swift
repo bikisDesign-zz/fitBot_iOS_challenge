@@ -64,7 +64,8 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
   
   
   func selected(activity: Activity) {
-    // move to details
+    let vc = ActivityDetailsViewController(activity: activity)
+    rootViewController.pushViewController(vc, animated: true)
   }
 }
 

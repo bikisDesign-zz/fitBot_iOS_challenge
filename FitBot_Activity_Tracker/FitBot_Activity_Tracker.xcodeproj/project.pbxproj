@@ -24,6 +24,8 @@
 		8955E378207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */; };
 		8955E37B207E4C8B00B7DDCB /* Strava.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E37A207E4C8B00B7DDCB /* Strava.swift */; };
 		8955E37F207ED95100B7DDCB /* StravaAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */; };
+		8955E383207F051C00B7DDCB /* ActivityDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E382207F051C00B7DDCB /* ActivityDetailsVC.swift */; };
+		8955E38A207F06D900B7DDCB /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E389207F06D900B7DDCB /* ActivityDetailsView.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
@@ -98,6 +100,8 @@
 		8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMetaTableViewCell.swift; sourceTree = "<group>"; };
 		8955E37A207E4C8B00B7DDCB /* Strava.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strava.swift; sourceTree = "<group>"; };
 		8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthVC.swift; sourceTree = "<group>"; };
+		8955E382207F051C00B7DDCB /* ActivityDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsVC.swift; sourceTree = "<group>"; };
+		8955E389207F06D900B7DDCB /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
@@ -241,6 +245,22 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		8955E386207F058A00B7DDCB /* UITableViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */,
+			);
+			path = UITableViewDataSource;
+			sourceTree = "<group>";
+		};
+		8955E38B207F0AA000B7DDCB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8955E389207F06D900B7DDCB /* ActivityDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8959E96D207C005D00753F41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,7 +382,7 @@
 				8955E37A207E4C8B00B7DDCB /* Strava.swift */,
 				8955E373207D9B8600B7DDCB /* Activity.swift */,
 				89E4594320795D3A00643F9D /* Theme.swift */,
-				8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */,
+				8955E386207F058A00B7DDCB /* UITableViewDataSource */,
 				89B2BF17207C057100718913 /* LocalFormData */,
 				89D45D8C2079825300D3536F /* ActivityState.swift */,
 				8955E36D207C0F1200B7DDCB /* Content.swift */,
@@ -376,6 +396,7 @@
 				89E4593E20795B3D00643F9D /* ActivitiesVC.swift */,
 				897B67F6207B0B48002E0120 /* NewActivityVC.swift */,
 				8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */,
+				8955E382207F051C00B7DDCB /* ActivityDetailsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -387,6 +408,7 @@
 				897B67EA207ACC15002E0120 /* Backgrounds */,
 				89D45D8520797B9500D3536F /* Storyboards */,
 				89D45D8A2079807200D3536F /* Buttons */,
+				8955E38B207F0AA000B7DDCB /* View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,6 +524,7 @@
 				89B2BF2A207C05A100718913 /* LocalButtonDataSource.swift in Sources */,
 				89D45D8D2079825300D3536F /* ActivityState.swift in Sources */,
 				89B2BF00207C054000718913 /* DeviceSize.swift in Sources */,
+				8955E383207F051C00B7DDCB /* ActivityDetailsVC.swift in Sources */,
 				89B2BEF8207C054000718913 /* SVNFormPlaceholderLabel.swift in Sources */,
 				89B2BF02207C054000718913 /* SVNFormDisclosureButton.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
@@ -528,6 +551,7 @@
 				89B2BF0E207C054000718913 /* SVNTermsActionSheetDatasource.swift in Sources */,
 				89B2BF10207C054000718913 /* SVNFormViewController.swift in Sources */,
 				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
+				8955E38A207F06D900B7DDCB /* ActivityDetailsView.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
 				8955E36E207C0F1200B7DDCB /* Content.swift in Sources */,
 				897B67F7207B0B48002E0120 /* NewActivityVC.swift in Sources */,

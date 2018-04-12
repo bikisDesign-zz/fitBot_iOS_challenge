@@ -20,7 +20,7 @@ struct Theme {
     case fitBotRed
     case teal
     case unfilledTextField
-    
+    case offBlack
     
     var color: UIColor {
       switch self {
@@ -30,12 +30,16 @@ struct Theme {
         return UIColor(r: 38, g: 198, b: 218)
       case .unfilledTextField:
         return UIColor(r: 228, g: 228, b: 228)
+      case .offBlack:
+        return UIColor(r: 74, g: 74, b: 74)
       }
     }
   }
   
   enum Fonts {
     case title
+    case smallTitle
+    case smallDetail
     case subtitle
     case body
     case detail
@@ -45,6 +49,10 @@ struct Theme {
       switch self {
       case .title:
         return UIFont(name: ApplicationFonts.robotBold, size: 32)!
+      case .smallTitle:
+        return UIFont(name: ApplicationFonts.robotBold, size: 22)!
+      case .smallDetail:
+        return UIFont(name: ApplicationFonts.robotoLight, size: 22)!
       case .subtitle:
         return UIFont(name: ApplicationFonts.robotoMed, size: 30)!
       case .body:
