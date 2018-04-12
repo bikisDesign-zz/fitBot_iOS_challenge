@@ -40,19 +40,23 @@ final class ActivityCoordinator: NavigationCoordinator, NeedsDependency, UIViewC
 }
 
 extension ActivityCoordinator: ActivitiesViewControllerDelegate {
-  func presentNewActivityForm() {
-    let vc = NewActivityViewController(datasource: .newActivity)
-    vc.delegate = self
-    let nc = UINavigationController(rootViewController: vc)
-    nc.setNavigationBarHidden(true, animated: false)
-    nc.transitioningDelegate = self
-    present(nc)
-  }
-  
-  func dismissNewActivityForm() {
-    rootViewController.dismiss(animated: true, completion: nil)
+  func addNewActivity(sender: ActivitiesViewController) {
+    sender.show(alertWithType: Content.AuthorizeStravaAlert()) { (shouldAuth) in
+      if shouldAuth {
+        let wv = StravaAuthViewController()
+        wv.delegate = self
+        self.show(wv)
+      }
+    }
   }
 }
+
+//    let vc = NewActivityViewController(datasource: .newActivity)
+//    vc.delegate = self
+//    let nc = UINavigationController(rootViewController: vc)
+//    nc.setNavigationBarHidden(true, animated: false)
+//    nc.transitioningDelegate = self
+//    present(nc)
 
 extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func didValidateAllFields(withCredentials credentials: Credentials) {
@@ -62,6 +66,11 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func dismissNewActivityVC() {
     rootViewController.dismiss(animated: true, completion: nil)
   }
+}
+
+extension ActivityCoordinator: StravaAuthViewControllerDelegate {
   
-  
+  func received(code: String) {
+    print(code)
+  }
 }

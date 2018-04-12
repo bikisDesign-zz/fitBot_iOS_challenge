@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SVNBootstraper
 
 
 struct Content {
@@ -19,5 +20,12 @@ struct Content {
         return "New Activity"
       }
     }
+  }
+  
+  struct AuthorizeStravaAlert: SVNAlert {
+    var title: String = "Authorize Strava"
+    var message: String = "This app uses Strava to store its data. In order to add an Activity please Authorize this app on Strava"
+    var denialTitle: String = "No"
+    var confirmationTitle: String = "Yes"
   }
 }
