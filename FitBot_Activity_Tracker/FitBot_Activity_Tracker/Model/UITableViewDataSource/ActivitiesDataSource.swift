@@ -14,9 +14,7 @@ final class ActivitiesDataSource: NSObject, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: ActivityMetaTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-    let date = postedActivites[indexPath.row].date
-    let distance = postedActivites[indexPath.row].distance
-    cell.set(date: date, distance: distance)
+    cell.set(with: postedActivites[indexPath.row])
     return cell
   }
   

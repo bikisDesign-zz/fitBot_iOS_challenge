@@ -14,14 +14,14 @@ final class ActivityDetailsViewController: CoordinatableViewController {
   
   private lazy var timeDetailsView: ActivityDetailsView = {
     let v = ActivityDetailsView(title: Content.Text.detailsTitle.text,
-                                details: "\(activity.time)")
+                                details: activity.getPrettyTime())
     view.addSubview(v)
     return v
   }()
   
   private lazy var distanceDetailsView: ActivityDetailsView = {
     let v = ActivityDetailsView(title: Content.Text.detailsDistance.text,
-                                details: "\(activity.distance)")
+                                details: activity.getPrettyDistance())
     view.addSubview(v)
     return v
   }()

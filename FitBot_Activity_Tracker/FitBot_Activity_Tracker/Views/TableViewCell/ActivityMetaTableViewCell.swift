@@ -10,6 +10,7 @@ import UIKit
 import SwiftEssentials
 
 final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
+  
   private lazy var dateLabel: UILabel = self.labelFactory(isDate: true)
   
   private lazy var distanceLabel: UILabel = self.labelFactory(isDate: false)
@@ -51,8 +52,8 @@ final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   }
   
   
-  func set(date: String, distance: Int){
-    dateLabel.text = date
-    distanceLabel.text = String(distance).appending("FT")
+  func set(with activity: Activity){
+    dateLabel.text = activity.convert(date: activity.date, toStrava: false)
+    distanceLabel.text = String(activity.getPrettyDistance()).appending("FT")
   }
 }
