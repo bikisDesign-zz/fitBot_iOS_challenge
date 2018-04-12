@@ -42,4 +42,11 @@ struct Activity {
     
     self.time = hoursInSec * 60 + secs
   }
+  
+  // helper init to debug ui for tableviewcell
+  init(date: String, time: Int, distance: Int) {
+    self.date = date
+    self.time = time
+    self.distance = distance
+  }
 }

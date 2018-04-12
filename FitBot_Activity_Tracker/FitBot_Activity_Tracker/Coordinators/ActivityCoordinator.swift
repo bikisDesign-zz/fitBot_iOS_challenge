@@ -61,6 +61,11 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
     nc.transitioningDelegate = self
     present(nc)
   }
+  
+  
+  func selected(activity: Activity) {
+    // move to details
+  }
 }
 
 

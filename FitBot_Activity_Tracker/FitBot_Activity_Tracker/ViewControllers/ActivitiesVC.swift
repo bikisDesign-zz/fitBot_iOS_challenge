@@ -13,6 +13,7 @@ import SVNBootstraper
 
 protocol ActivitiesViewControllerDelegate: class {
   func addNewActivity(sender: ActivitiesViewController)
+  func selected(activity: Activity)
 }
 
 final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate, Alertable {
@@ -36,6 +37,10 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     view = UIView()
     view.backgroundColor = UIColor.white
     
+    title = "Activity Tracker"
+    // add tv to view
+    activitiesTableView.translatesAutoresizingMaskIntoConstraints = false
+    
     // addButton to view
     let device = Device()
     let addButtonSize = CGFloat(device.diagonal * 8)
@@ -45,6 +50,8 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.delegate = self
     view.addSubview(addButton)
     
+    
+    
     let margins = view.layoutMarginsGuide
     
     //Set button constraints
@@ -52,14 +59,30 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     addButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     addButton.widthAnchor.constraint(equalToConstant: addButtonSize).isActive = true
     addButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10).isActive = true
+    
+    
+    activitiesTableView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 45).isActive = true
+    activitiesTableView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+    activitiesTableView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+    activitiesTableView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+    
+    let activity = Activity(date: "3/4/18", time: 1232, distance: 3655)
+    let activity1 = Activity(date: "3/4/18", time: 1232, distance: 3655)
+    let activity2 = Activity(date: "3/4/18", time: 1232, distance: 3655)
+    activitiesDatasource.postedActivites.append(activity)
+    activitiesDatasource.postedActivites.append(activity1)
+    activitiesDatasource.postedActivites.append(activity2)
   }
+  
+
   
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    if addButton.animationState == .isHidden { // if returning after dismissing the new activity VC this button will need to be refreshed
+    if addButton.animationState == .isHidden { // if returning after dismissing a VC this button will need to be refreshed
       addButton.lightenExpand()
     }
+    activitiesTableView.reloadData()
   }
   
   func updateDataSource(newActivity: Activity){
@@ -83,10 +106,10 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
 }
 extension ActivitiesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // navigate to details
+    self.delegate?.selected(activity: activitiesDatasource.postedActivites[indexPath.row])
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 45
+    return 65
   }
 }

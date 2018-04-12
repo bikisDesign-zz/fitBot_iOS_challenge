@@ -17,6 +17,7 @@ final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   private lazy var iconImageView: UIImageView = {
     let iv = UIImageView(image: #imageLiteral(resourceName: "Icons_Runner"))
     iv.contentMode = .scaleAspectFit
+    addSubview(iv)
     return iv
   }()
   
@@ -33,19 +34,18 @@ final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   }
   
   override func layoutSubviews() {
-    let iconPadding: CGFloat = 10
     let yPaddding: CGFloat = 5
-    
+    let xPadding: CGFloat = 15
     iconImageView.frame = CGRect(x: 0, y: 0,
                                  width: 25, height: frame.height)
     
-    let iconImageSizeNPadding = iconImageView.frame.origin.x + iconImageView.frame.width + yPaddding
+    let iconImageSizeNPadding = iconImageView.frame.origin.x + iconImageView.frame.width + xPadding
     
-    dateLabel.frame = CGRect(x: iconImageView.frame.origin.x + iconPadding, y: yPaddding,
+    dateLabel.frame = CGRect(x: iconImageSizeNPadding, y: yPaddding,
                               width: (frame.width - yPaddding) - iconImageSizeNPadding, height: frame.height / 3 - 10) // padding distance is 5
     
     let distancelabelEnd = dateLabel.frame.origin.y + dateLabel.frame.size.height + yPaddding
-    distanceLabel.frame = CGRect(x: iconImageView.frame.origin.x + iconPadding, y: distancelabelEnd,
+    distanceLabel.frame = CGRect(x: iconImageSizeNPadding, y: distancelabelEnd,
                                  width: (frame.width - yPaddding) - iconImageSizeNPadding, height: (frame.height - yPaddding) - (distancelabelEnd + yPaddding))
     
   }
@@ -53,6 +53,6 @@ final class ActivityMetaTableViewCell: UITableViewCell, ReusableView {
   
   func set(date: String, distance: Int){
     dateLabel.text = date
-    distanceLabel.text = String(distance)
+    distanceLabel.text = String(distance).appending("FT")
   }
 }
