@@ -38,14 +38,14 @@ final class Networking: NSObject {
     let url = Strava.athleteURL.appending(Strava.Key.accessToken.appending("=\(token)"))
     request(withParams: params, url: url) { (json) in
       if json?["name"] as? String == "activity_tracker" {
-          callback(true)
-          return
-        }
+        callback(true)
+        return
+      }
       callback(false)
     }
   }
   
-  func getPostedActivties(token: String, callback: @escaping (JSON?) -> ()){
+  func getPostedActivties(token: String, callback: @escaping ([JSON]?) -> ()){
     let url = Strava.activitiesURL.appending(Strava.Key.accessToken.appending("=\(token)"))
     var request = URLRequest(url: URL(string: url)!)
     request.httpMethod = "GET"
@@ -63,15 +63,13 @@ final class Networking: NSObject {
       
       do {
         //create json object from data
-        if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSON {
+        let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+        print(json ?? "couldn't serialize")
+        if let json = json as? [JSON] {
+          print(json ?? "issue here")
           callback(json)
         }
       } catch let error {
-        if let response = response as? HTTPURLResponse {
-          if response.statusCode == 200 {
-            callback(["response": 200])
-          }
-        }
         print(error.localizedDescription)
       }
     })

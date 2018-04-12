@@ -76,9 +76,9 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func didValidateAllFields(withCredentials credentials: Credentials) {
     //parse Activity
     guard let activity = Activity(date: credentials[LocalFormFieldType.date]!,
-                            time: credentials[LocalFormFieldType.time]!,
-                            distance: credentials[LocalFormFieldType.distance]!),
-    let token = dependencies?.strava.acessToken else { return }
+                                  time: credentials[LocalFormFieldType.time]!,
+                                  distance: credentials[LocalFormFieldType.distance]!),
+      let token = dependencies?.strava.acessToken else { return }
     
     // post activity
     self.dependencies?.networking.post(activity: activity, token: token, callback: { (success) in
@@ -110,14 +110,15 @@ extension ActivityCoordinator: StravaAuthViewControllerDelegate {
   func received(code: String) {
     dependencies?.strava.code = code // save the code in temp
     dependencies?.networking.requestAcessToken(code: code, callback: { (accessToken) in
-      if let accessToken = accessToken {
-        self.dependencies?.strava.acessToken = accessToken // save the token in temp
-        self.rootViewController.dismiss(animated: true, completion: nil)
-        self.dependencies?.networking.getPostedActivties(token: accessToken, callback: { (json) in
-          
-          guard let json = json else { return } // no activities
-          
-          var postedActivities = Activites()
+      guard let accessToken = accessToken  else { return }
+      self.dependencies?.strava.acessToken = accessToken // save the token in temp
+      self.rootViewController.dismiss(animated: true, completion: nil)
+      self.dependencies?.networking.getPostedActivties(token: accessToken, callback: { (jsonArr) in
+        
+        guard let jsonArr = jsonArr else { return } // no activities
+        
+        var postedActivities = Activites()
+        for json in jsonArr {
           json.forEach({ (key: String, value: Any?) in
             if let activityJSON = value as? JSON,
               let activity = Activity(json: activityJSON) {
@@ -128,8 +129,8 @@ extension ActivityCoordinator: StravaAuthViewControllerDelegate {
           postedActivities.sort(by: { (lhs, rhs) -> Bool in
             return lhs.getDate().compare(rhs.getDate()) == .orderedAscending
           })
-        })
-      }
+        }
+      })
     })
   }
 }
