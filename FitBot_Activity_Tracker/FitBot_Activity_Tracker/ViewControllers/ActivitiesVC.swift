@@ -9,13 +9,13 @@
 import UIKit
 import DeviceKit
 import SwiftEssentials
+import SVNBootstraper
 
 protocol ActivitiesViewControllerDelegate: class {
-  func presentNewActivityForm()
-  func dismissNewActivityForm()
+  func addNewActivity(sender: ActivitiesViewController)
 }
 
-final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate {
+final class ActivitiesViewController: CoordinatableViewController, AddButtonDelegate, Alertable {
   
   weak var delegate: ActivitiesViewControllerDelegate?
   
@@ -71,7 +71,7 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   // add button delegate
   func animationFinished() {
     DispatchQueue.main.async {
-      self.delegate?.presentNewActivityForm()
+      self.delegate?.addNewActivity(sender: self)
     }
   }
 }
@@ -84,4 +84,3 @@ extension ActivitiesViewController: UITableViewDelegate {
     return 45
   }
 }
-

@@ -9,5 +9,5 @@
 import Foundation
 
 struct AppDependency {
-  
+  var networking: Networking
 }

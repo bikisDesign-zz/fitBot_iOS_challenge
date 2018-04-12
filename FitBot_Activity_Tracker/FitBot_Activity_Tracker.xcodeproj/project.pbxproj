@@ -22,6 +22,8 @@
 		8955E374207D9B8600B7DDCB /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E373207D9B8600B7DDCB /* Activity.swift */; };
 		8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */; };
 		8955E378207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */; };
+		8955E37B207E4C8B00B7DDCB /* Strava.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E37A207E4C8B00B7DDCB /* Strava.swift */; };
+		8955E37F207ED95100B7DDCB /* StravaAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
@@ -94,6 +96,8 @@
 		8955E373207D9B8600B7DDCB /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDataSource.swift; sourceTree = "<group>"; };
 		8955E377207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMetaTableViewCell.swift; sourceTree = "<group>"; };
+		8955E37A207E4C8B00B7DDCB /* Strava.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strava.swift; sourceTree = "<group>"; };
+		8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthVC.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 			children = (
 				8917331A2078329200001EAB /* AppDependency.swift */,
 				8955E371207C600300B7DDCB /* Networking.swift */,
+				8955E37A207E4C8B00B7DDCB /* Strava.swift */,
 				8955E373207D9B8600B7DDCB /* Activity.swift */,
 				89E4594320795D3A00643F9D /* Theme.swift */,
 				8955E375207D9C1A00B7DDCB /* ActivitiesDataSource.swift */,
@@ -370,6 +375,7 @@
 			children = (
 				89E4593E20795B3D00643F9D /* ActivitiesVC.swift */,
 				897B67F6207B0B48002E0120 /* NewActivityVC.swift */,
+				8955E37E207ED95100B7DDCB /* StravaAuthVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -507,6 +513,7 @@
 				89B2BF03207C054000718913 /* SVNFormToggleView.swift in Sources */,
 				8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */,
 				8955E370207C4DED00B7DDCB /* LocalPickerType.swift in Sources */,
+				8955E37F207ED95100B7DDCB /* StravaAuthVC.swift in Sources */,
 				89B2BF2D207C073C00718913 /* LocalDatePickerType.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
 				89B2BF0F207C054000718913 /* TermsActionSheetPresentable.swift in Sources */,
@@ -514,6 +521,7 @@
 				89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */,
 				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
 				89B2BF11207C054000718913 /* SVNFormTermsOverlay.swift in Sources */,
+				8955E37B207E4C8B00B7DDCB /* Strava.swift in Sources */,
 				89E4594220795BED00643F9D /* PopButton.swift in Sources */,
 				89B2BF2B207C05A100718913 /* LocalFormFieldType.swift in Sources */,
 				89B2BF09207C054000718913 /* SVNFormTheme.swift in Sources */,
@@ -680,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "rose.and.pine.creative.FitBot-Activity-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.roseAndPine.activity-tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -702,7 +710,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "rose.and.pine.creative.FitBot-Activity-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.roseAndPine.activity-tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

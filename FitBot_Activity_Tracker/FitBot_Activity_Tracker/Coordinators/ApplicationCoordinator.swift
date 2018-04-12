@@ -19,9 +19,8 @@ final class ApplicationCoordinator: NavigationCoordinator, NeedsDependency {
   
   
   override func start(with completion: @escaping () -> Void) {
-    dependencies = AppDependency()
+    dependencies = AppDependency(networking: Networking())
     super.start(with: completion)
-    
     let activityCoordinator = ActivityCoordinator(rootViewController: rootViewController)
     activityCoordinator.dependencies = dependencies
     startChild(coordinator: activityCoordinator)
