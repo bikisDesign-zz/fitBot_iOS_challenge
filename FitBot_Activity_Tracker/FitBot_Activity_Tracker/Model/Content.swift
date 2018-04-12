@@ -13,11 +13,17 @@ import SVNBootstraper
 struct Content {
   enum Text {
     case formTitle
+    case detailsTitle
+    case detailsDistance
     
     var text: String {
       switch self {
       case .formTitle:
         return "New Activity"
+      case .detailsTitle:
+        return "Total Time:"
+      case .detailsDistance:
+        return "Distance:"
       }
     }
   }

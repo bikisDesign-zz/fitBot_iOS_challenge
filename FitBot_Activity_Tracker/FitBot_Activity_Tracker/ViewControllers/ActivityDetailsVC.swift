@@ -13,13 +13,15 @@ final class ActivityDetailsViewController: CoordinatableViewController {
   private var activity: Activity
   
   private lazy var timeDetailsView: ActivityDetailsView = {
-    let v = ActivityDetailsView(title: LocalFormFieldType.time.fieldData.placeholder, details: "\(activity.time)")
+    let v = ActivityDetailsView(title: Content.Text.detailsTitle.text,
+                                details: "\(activity.time)")
     view.addSubview(v)
     return v
   }()
   
   private lazy var distanceDetailsView: ActivityDetailsView = {
-    let v = ActivityDetailsView(title: LocalFormFieldType.distance.fieldData.placeholder, details: "\(activity.distance)")
+    let v = ActivityDetailsView(title: Content.Text.detailsDistance.text,
+                                details: "\(activity.distance)")
     view.addSubview(v)
     return v
   }()
@@ -41,14 +43,14 @@ final class ActivityDetailsViewController: CoordinatableViewController {
     
     let margins = view.layoutMarginsGuide
     
-    timeDetailsView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+    timeDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1).isActive = true
     timeDetailsView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-    timeDetailsView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+    timeDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -1).isActive = true
     timeDetailsView.heightAnchor.constraint(equalToConstant: 65).isActive = true
     
-    distanceDetailsView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-    distanceDetailsView.topAnchor.constraint(equalTo: timeDetailsView.bottomAnchor).isActive = true
-    distanceDetailsView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+    distanceDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1).isActive = true
+    distanceDetailsView.topAnchor.constraint(equalTo: timeDetailsView.bottomAnchor, constant: -1).isActive = true
+    distanceDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -1).isActive = true
     distanceDetailsView.heightAnchor.constraint(equalToConstant: 65).isActive = true
   }
 }

@@ -18,7 +18,7 @@ final class ActivityDetailsView: UIView {
     label.textColor = Theme.Colors.offBlack.color
     label.text = title
     label.font = Theme.Fonts.smallTitle.font
-    label.textAlignment = .right
+    label.textAlignment = .left
     addSubview(label)
     return label
   }()
