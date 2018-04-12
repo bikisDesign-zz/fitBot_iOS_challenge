@@ -19,7 +19,7 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
   
   weak var delegate: ActivitiesViewControllerDelegate?
   
-  var activitiesDatasource: ActivitiesDataSource?
+  private lazy var activitiesDatasource: ActivitiesDataSource = ActivitiesDataSource()
   
   private lazy var addButton = PopButton()
   
@@ -62,7 +62,12 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     }
   }
   
-  
+  func updateDataSource(newActivity: Activity){
+    activitiesDatasource.postedActivites.append(newActivity)
+    DispatchQueue.main.async { // make sure this is done on the main thread
+      self.activitiesTableView.reloadData()
+    }
+  }
   
   //MARK: AddButton Delegates
   @objc private func addNewActivity(){

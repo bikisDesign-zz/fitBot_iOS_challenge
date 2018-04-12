@@ -66,9 +66,26 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
 
 extension ActivityCoordinator: NewActivityViewControllerDelegate {
   func didValidateAllFields(withCredentials credentials: Credentials) {
-    let activity = Activity(date: credentials[LocalFormFieldType.date]!,
+    //parse Activity
+    guard let activity = Activity(date: credentials[LocalFormFieldType.date]!,
                             time: credentials[LocalFormFieldType.time]!,
-                            distance: credentials[LocalFormFieldType.distance]!)
+                            distance: credentials[LocalFormFieldType.distance]!),
+    let token = dependencies?.strava.acessToken else { return }
+    
+    // post activity
+    self.dependencies?.networking.post(activity: activity, token: token, callback: { (success) in
+      if success {
+        
+        // pop top VC
+        self.rootViewController.dismiss(animated: true, completion: {
+          
+          //update actvitiesVC datasource
+          guard let vc = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController else { return }
+          
+          vc.updateDataSource(newActivity: activity)
+        })
+      }
+    })
   }
   
   func dismissNewActivityVC() {
@@ -79,7 +96,6 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
 extension ActivityCoordinator: StravaAuthViewControllerDelegate {
   
   func received(code: String) {
-    
     dependencies?.strava.code = code // save the code in temp
     dependencies?.networking.requestAcessToken(code: code, callback: { (accessToken) in
       if let accessToken = accessToken {

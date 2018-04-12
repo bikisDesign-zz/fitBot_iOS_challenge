@@ -11,7 +11,7 @@ import Foundation
 struct Strava {
   static let authorizeURL: String = "https://www.strava.com/oauth/authorize?client_id=24730&response_type=code&redirect_uri=https://com.fitbot-activity-tracker&approval_prompt=force"
   static let oauthURL: String = "https://www.strava.com/oauth/token?"
-  
+  static let activitiesURL: String = "https://www.strava.com/api/v3/athlete?"
   var code: String?
   
   var acessToken: String?

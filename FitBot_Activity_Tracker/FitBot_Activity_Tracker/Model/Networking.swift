@@ -29,8 +29,20 @@ final class Networking: NSObject {
   }
   
   
-  func post(activity: Activity){
-    
+  func post(activity: Activity, token: String, callback: @escaping (Bool) -> ()) {
+    let params: JSON = [Strava.Key.distanceInMeters: activity.distance,
+                        Strava.Key.startDate: activity.date,
+                        Strava.Key.durationInSeconds: activity.time]
+    let url = Strava.activitiesURL.appending(Strava.Key.accessToken.appending("=\(token)"))
+    request(withParams: params, url: url) { (json) in
+      if let response = json?["response"] as? Int {
+        if response == 200 {
+          callback(true)
+          return
+        }
+      }
+      callback(false)
+    }
   }
   
   private func request(withParams params: JSON, url: String, callback: @escaping (JSON?) -> ()){
@@ -59,7 +71,11 @@ final class Networking: NSObject {
           callback(json)
         }
       } catch let error {
-        callback(nil)
+        if let response = response as? HTTPURLResponse {
+          if response.statusCode == 200 {
+            callback(["response": 200])
+          }
+        }
         print(error.localizedDescription)
       }
     })
