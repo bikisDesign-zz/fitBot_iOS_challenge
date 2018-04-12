@@ -90,7 +90,7 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
           //update actvitiesVC datasource
           guard let vc = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController else { return }
           
-          vc.updateDataSource(newActivity: activity)
+          vc.addNew(activity: activity)
         })
       }
     })
@@ -117,18 +117,19 @@ extension ActivityCoordinator: StravaAuthViewControllerDelegate {
         
         guard let jsonArr = jsonArr else { return } // no activities
         
-        var postedActivities = Activites()
+        var postedActivities = Activites() // parse activities
         for json in jsonArr {
-          json.forEach({ (key: String, value: Any?) in
-            if let activityJSON = value as? JSON,
-              let activity = Activity(json: activityJSON) {
-              postedActivities.append(activity)
-            }
-          })
-          
-          postedActivities.sort(by: { (lhs, rhs) -> Bool in
-            return lhs.getDate().compare(rhs.getDate()) == .orderedAscending
-          })
+          print(json)
+          if let activity = Activity(json: json) {
+            postedActivities.append(activity)
+          }
+        }
+        postedActivities.sort(by: { (lhs, rhs) -> Bool in // sort activities by date
+          return lhs.getDate().compare(rhs.getDate()) == .orderedAscending
+        })
+        
+        if let activitiesVC = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController { // update datasource
+          activitiesVC.update(activities: postedActivities)
         }
       })
     })

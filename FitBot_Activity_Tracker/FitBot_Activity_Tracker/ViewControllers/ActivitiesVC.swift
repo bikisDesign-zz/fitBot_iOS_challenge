@@ -78,12 +78,21 @@ final class ActivitiesViewController: CoordinatableViewController, AddButtonDele
     activitiesTableView.reloadData()
   }
   
-  func updateDataSource(newActivity: Activity){
-    activitiesDatasource.postedActivites.append(newActivity)
+  func addNew(activity: Activity){
+    activitiesDatasource.postedActivites.append(activity)
     DispatchQueue.main.async { // make sure this is done on the main thread
       self.activitiesTableView.reloadData()
     }
   }
+  
+  func update(activities: Activites) {
+    activitiesDatasource.postedActivites = activities
+    DispatchQueue.main.async { // make sure this is done on the main thread
+      self.activitiesTableView.reloadData()
+    }
+  }
+  
+  
   
   //MARK: AddButton Delegates
   @objc private func addNewActivity(){

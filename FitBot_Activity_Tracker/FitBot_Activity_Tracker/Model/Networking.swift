@@ -64,9 +64,7 @@ final class Networking: NSObject {
       do {
         //create json object from data
         let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-        print(json ?? "couldn't serialize")
         if let json = json as? [JSON] {
-          print(json ?? "issue here")
           callback(json)
         }
       } catch let error {
