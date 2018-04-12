@@ -10,6 +10,3 @@
 [submodule "Carthage/Checkouts/SVNShapesManager"]
 	path = FitBot_Activity_Tracker/Carthage/Checkouts/SVNShapesManager
 	url = https://github.com/sevenapps/SVNShapesManager.git
-[submodule "Carthage/Checkouts/SVNiOSBootstraper"]
-	path = FitBot_Activity_Tracker/Carthage/Checkouts/SVNiOSBootstraper
-	url = https://github.com/sevenapps/SVNiOSBootstraper.git
