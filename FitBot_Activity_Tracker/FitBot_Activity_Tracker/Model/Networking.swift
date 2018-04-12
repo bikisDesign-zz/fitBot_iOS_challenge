@@ -6,7 +6,6 @@
 //  Copyright © 2018 Aaron bikis. All rights reserved.
 //
 
-import Alamofire
 import SafariServices
 
 typealias JSON = [String: Any?]

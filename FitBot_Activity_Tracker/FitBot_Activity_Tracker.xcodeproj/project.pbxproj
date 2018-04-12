@@ -29,7 +29,6 @@
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
 		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
-		8959E978207C005D00753F41 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E971207C005D00753F41 /* Alamofire.framework */; };
 		8959E979207C005D00753F41 /* SVNShapesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E972207C005D00753F41 /* SVNShapesManager.framework */; };
 		8959E97A207C005D00753F41 /* SVNTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E973207C005D00753F41 /* SVNTheme.framework */; };
 		8959E97B207C005D00753F41 /* SwiftEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E974207C005D00753F41 /* SwiftEssentials.framework */; };
@@ -164,7 +163,6 @@
 				8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */,
 				8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */,
 				8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */,
-				8959E978207C005D00753F41 /* Alamofire.framework in Frameworks */,
 				8959E979207C005D00753F41 /* SVNShapesManager.framework in Frameworks */,
 				8959E97A207C005D00753F41 /* SVNTheme.framework in Frameworks */,
 				8959E97B207C005D00753F41 /* SwiftEssentials.framework in Frameworks */,
@@ -490,7 +488,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/DeviceKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVNBootstraper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVNTextValidator.framework",
@@ -500,7 +497,6 @@
 			);
 			name = Carthage;
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/DeviceKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNBootstraper.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNShapesManager.framework",
