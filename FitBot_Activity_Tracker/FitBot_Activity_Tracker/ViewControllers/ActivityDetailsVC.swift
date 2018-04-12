@@ -37,7 +37,7 @@ final class ActivityDetailsViewController: CoordinatableViewController {
     view = UIView()
     view.backgroundColor = UIColor.white
     
-    title = activity.date
+    title = activity.convert(date: activity.date, toStrava: false)
     timeDetailsView.translatesAutoresizingMaskIntoConstraints = false
     distanceDetailsView.translatesAutoresizingMaskIntoConstraints = false
     

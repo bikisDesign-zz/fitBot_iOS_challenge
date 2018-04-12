@@ -69,7 +69,7 @@ struct Activity {
   func convert(date: String, toStrava: Bool) -> String {
     let dateFormater = DateFormatter()
     dateFormater.dateFormat = "MM/dd/yyyy"
-    let ISO8601formatter = getiso8601Formatter()
+    let ISO8601formatter = ISO8601DateFormatter()
     
     if toStrava {
       let localDate = dateFormater.date(from: date)
@@ -82,13 +82,6 @@ struct Activity {
   }
   
   func getDate() -> Date? {
-    let date = getiso8601Formatter().date(from: self.date)!
-    return date
-  }
-  
-  private func getiso8601Formatter() -> ISO8601DateFormatter {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    return formatter
+    return ISO8601DateFormatter().date(from: self.date)
   }
 }
