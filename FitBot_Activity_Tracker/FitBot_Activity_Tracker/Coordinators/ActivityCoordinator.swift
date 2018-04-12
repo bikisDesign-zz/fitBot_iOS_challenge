@@ -69,6 +69,29 @@ extension ActivityCoordinator: ActivitiesViewControllerDelegate {
     let vc = ActivityDetailsViewController(activity: activity)
     rootViewController.pushViewController(vc, animated: true)
   }
+  
+  func fetchActivities(){
+    guard let accessToken = dependencies?.strava.acessToken else { return } // TODO handle token revoke
+    self.dependencies?.networking.getPostedActivties(token: accessToken, callback: { (jsonArr) in
+      
+      guard let jsonArr = jsonArr else { return } // no activities
+      
+      var postedActivities = Activites() // parse activities
+      for json in jsonArr {
+        print(json)
+        if let activity = Activity(json: json) {
+          postedActivities.append(activity)
+        }
+      }
+      postedActivities.sort(by: { (lhs, rhs) -> Bool in // sort activities by date
+        return lhs.getDate()?.compare(rhs.getDate()!) == .orderedAscending
+      })
+      
+      if let activitiesVC = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController { // update datasource
+        activitiesVC.update(activities: postedActivities)
+      }
+    })
+  }
 }
 
 
@@ -87,10 +110,7 @@ extension ActivityCoordinator: NewActivityViewControllerDelegate {
         // pop top VC
         self.rootViewController.dismiss(animated: true, completion: {
           
-          //update actvitiesVC datasource
-          guard let vc = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController else { return }
-          
-          vc.addNew(activity: activity)
+          self.fetchActivities() // update VC datasource
         })
       }
     })
@@ -112,25 +132,8 @@ extension ActivityCoordinator: StravaAuthViewControllerDelegate {
     dependencies?.networking.requestAcessToken(code: code, callback: { (accessToken) in
       guard let accessToken = accessToken  else { return }
       self.dependencies?.strava.acessToken = accessToken // save the token in temp
-      self.rootViewController.dismiss(animated: true, completion: nil)
-      self.dependencies?.networking.getPostedActivties(token: accessToken, callback: { (jsonArr) in
-        
-        guard let jsonArr = jsonArr else { return } // no activities
-        
-        var postedActivities = Activites() // parse activities
-        for json in jsonArr {
-          print(json)
-          if let activity = Activity(json: json) {
-            postedActivities.append(activity)
-          }
-        }
-        postedActivities.sort(by: { (lhs, rhs) -> Bool in // sort activities by date
-          return lhs.getDate().compare(rhs.getDate()) == .orderedAscending
-        })
-        
-        if let activitiesVC = self.viewControllers.filter({ $0 is ActivitiesViewController }).first as? ActivitiesViewController { // update datasource
-          activitiesVC.update(activities: postedActivities)
-        }
+      self.rootViewController.dismiss(animated: true, completion: {
+        self.fetchActivities()
       })
     })
   }

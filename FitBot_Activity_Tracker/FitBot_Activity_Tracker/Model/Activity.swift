@@ -23,8 +23,9 @@ struct Activity {
       self.time = time
       self.distance = distance
       self.date = date
+    } else {
+      return nil
     }
-    return nil
   }
   
   // parse form data for API
@@ -80,15 +81,14 @@ struct Activity {
     }
   }
   
-  func getDate() -> Date {
-    return getiso8601Formatter().date(from: date)!
+  func getDate() -> Date? {
+    let date = getiso8601Formatter().date(from: self.date)!
+    return date
   }
   
-  private func getiso8601Formatter() -> DateFormatter {
-    let ISO8601formatter = DateFormatter()
-    ISO8601formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-    ISO8601formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    ISO8601formatter.locale = Locale(identifier: "en_US_POSIX")
-    return ISO8601formatter
+  private func getiso8601Formatter() -> ISO8601DateFormatter {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    return formatter
   }
 }
