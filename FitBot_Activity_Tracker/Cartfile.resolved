@@ -1,6 +1,6 @@
-github "bikisDesign/BDTextValidator" "ef3e0d8735193bbce685daa5f6346751bca62614"
+github "bikisDesign/DeviceKit" "1.4.0"
 github "bikisDesign/Swift-Essentials" "cd12bfe781dc048e1d9f3c9ebcde139d49dcd933"
 github "cyrkus/SVNTheme" "39df47a573a80f31543d35780db8f8a6dc37f710"
-github "dennisweissmann/DeviceKit" "1.6.0"
+github "dennisweissmann/DeviceKit" "1.7.0"
 github "sevenapps/SVNShapesManager" "83a365a681bdaca80efb01548b703374c35dcd66"
 github "sevenapps/SVNiOSBootstraper" "1024336faa77a7c915142444be6adc9c0b643699"

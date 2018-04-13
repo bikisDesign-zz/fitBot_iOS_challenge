@@ -104,7 +104,6 @@
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
 		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
-		8959E971207C005D00753F41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		8959E972207C005D00753F41 /* SVNShapesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNShapesManager.framework; path = Carthage/Build/iOS/SVNShapesManager.framework; sourceTree = "<group>"; };
 		8959E973207C005D00753F41 /* SVNTheme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTheme.framework; path = Carthage/Build/iOS/SVNTheme.framework; sourceTree = "<group>"; };
 		8959E974207C005D00753F41 /* SwiftEssentials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEssentials.framework; path = Carthage/Build/iOS/SwiftEssentials.framework; sourceTree = "<group>"; };
@@ -262,7 +261,6 @@
 		8959E96D207C005D00753F41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8959E971207C005D00753F41 /* Alamofire.framework */,
 				8959E970207C005D00753F41 /* DeviceKit.framework */,
 				8959E96E207C005D00753F41 /* SVNBootstraper.framework */,
 				8959E972207C005D00753F41 /* SVNShapesManager.framework */,
