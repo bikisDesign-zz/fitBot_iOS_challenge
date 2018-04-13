@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVNTextValidator
 import SVNShapesManager
 
 class SVNFormCheckMarkView: UIView, SVNFormField {

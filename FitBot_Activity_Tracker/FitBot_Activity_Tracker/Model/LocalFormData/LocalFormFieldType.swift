@@ -9,7 +9,7 @@
 // The data source of all the fields for the form
 
 import UIKit
-import SVNTextValidator
+
 
 enum LocalFormFieldType: SVNFormFieldType {
   case time

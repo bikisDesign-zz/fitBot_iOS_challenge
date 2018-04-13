@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVNTextValidator
 
 typealias SVNFormData = [SVNFormFieldType]
 

@@ -16,12 +16,6 @@ final class SVNFormTextField: UITextField, SVNFormField {
   
   weak var formDelegate: SVNFormTextFieldDelegate!
   
-  var validationText: String {
-    get {
-      return text ?? ""
-    }
-  }
-  
   class var StandardHeight: CGFloat {
     get {
       return SVNLargeButton.standardHeight - (SVNFormPlaceholderLabel.StandardHeight - 10) // this is hacky but this library needs bit of work

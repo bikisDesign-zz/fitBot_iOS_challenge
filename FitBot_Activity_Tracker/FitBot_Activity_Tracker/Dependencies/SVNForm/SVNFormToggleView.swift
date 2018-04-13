@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVNTextValidator
 
 protocol SVNFormToggleViewDelegate: class {
   func onToggleViewTap(withValidationText text: String)

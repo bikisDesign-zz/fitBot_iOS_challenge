@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8900761F2081324200C13338 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900761A2081324200C13338 /* Validatable.swift */; };
+		890076202081324200C13338 /* ValidationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900761B2081324200C13338 /* ValidationDelegate.swift */; };
+		890076212081324200C13338 /* ValidatorDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900761C2081324200C13338 /* ValidatorDictionary.swift */; };
+		890076222081324200C13338 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900761D2081324200C13338 /* ValidationError.swift */; };
+		8900763D2081325600C13338 /* AlphaNumericRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076252081325300C13338 /* AlphaNumericRule.swift */; };
+		8900763E2081325600C13338 /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076262081325300C13338 /* RequiredRule.swift */; };
+		8900763F2081325600C13338 /* EmailRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076272081325300C13338 /* EmailRule.swift */; };
+		890076402081325600C13338 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076282081325300C13338 /* ValidationRule.swift */; };
+		890076412081325600C13338 /* SSNRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076292081325300C13338 /* SSNRule.swift */; };
+		890076422081325600C13338 /* HexColorRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762A2081325300C13338 /* HexColorRule.swift */; };
+		890076432081325600C13338 /* MinDateRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762B2081325300C13338 /* MinDateRule.swift */; };
+		890076442081325600C13338 /* RegexRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762C2081325400C13338 /* RegexRule.swift */; };
+		890076452081325600C13338 /* ConfirmRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762D2081325400C13338 /* ConfirmRule.swift */; };
+		890076462081325600C13338 /* MaxLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762E2081325400C13338 /* MaxLengthRule.swift */; };
+		890076472081325600C13338 /* MinLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900762F2081325400C13338 /* MinLengthRule.swift */; };
+		890076482081325600C13338 /* RoutingNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076302081325400C13338 /* RoutingNumberRule.swift */; };
+		890076492081325600C13338 /* ZipCodeRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076312081325400C13338 /* ZipCodeRule.swift */; };
+		8900764A2081325600C13338 /* AlphaRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076322081325400C13338 /* AlphaRule.swift */; };
+		8900764B2081325600C13338 /* CharacterSetRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076332081325400C13338 /* CharacterSetRule.swift */; };
+		8900764C2081325600C13338 /* IPV4Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076342081325500C13338 /* IPV4Rule.swift */; };
+		8900764D2081325600C13338 /* FullNameRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076352081325500C13338 /* FullNameRule.swift */; };
+		8900764E2081325600C13338 /* ISBNRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076362081325500C13338 /* ISBNRule.swift */; };
+		8900764F2081325600C13338 /* DateConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076372081325500C13338 /* DateConvertable.swift */; };
+		890076502081325600C13338 /* ExactLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076382081325500C13338 /* ExactLengthRule.swift */; };
+		890076512081325600C13338 /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890076392081325500C13338 /* PasswordRule.swift */; };
+		890076522081325600C13338 /* FloatRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900763A2081325500C13338 /* FloatRule.swift */; };
+		890076532081325600C13338 /* PhoneNumberRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900763B2081325500C13338 /* PhoneNumberRule.swift */; };
+		890076542081325600C13338 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8900763C2081325500C13338 /* Rule.swift */; };
+		89007656208132C500C13338 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89007655208132C500C13338 /* Validator.swift */; };
 		891732FD20782DC700001EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891732FC20782DC700001EAB /* AppDelegate.swift */; };
 		8917330420782DC900001EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8917330320782DC900001EAB /* Assets.xcassets */; };
 		8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8917330E20782F6B00001EAB /* NavigationCoordinator.swift */; };
@@ -27,7 +56,6 @@
 		8955E383207F051C00B7DDCB /* ActivityDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E382207F051C00B7DDCB /* ActivityDetailsVC.swift */; };
 		8955E38A207F06D900B7DDCB /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8955E389207F06D900B7DDCB /* ActivityDetailsView.swift */; };
 		8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96E207C005D00753F41 /* SVNBootstraper.framework */; };
-		8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E96F207C005D00753F41 /* SVNTextValidator.framework */; };
 		8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E970207C005D00753F41 /* DeviceKit.framework */; };
 		8959E979207C005D00753F41 /* SVNShapesManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E972207C005D00753F41 /* SVNShapesManager.framework */; };
 		8959E97A207C005D00753F41 /* SVNTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959E973207C005D00753F41 /* SVNTheme.framework */; };
@@ -80,6 +108,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8900761A2081324200C13338 /* Validatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		8900761B2081324200C13338 /* ValidationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationDelegate.swift; sourceTree = "<group>"; };
+		8900761C2081324200C13338 /* ValidatorDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorDictionary.swift; sourceTree = "<group>"; };
+		8900761D2081324200C13338 /* ValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		890076252081325300C13338 /* AlphaNumericRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaNumericRule.swift; sourceTree = "<group>"; };
+		890076262081325300C13338 /* RequiredRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
+		890076272081325300C13338 /* EmailRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailRule.swift; sourceTree = "<group>"; };
+		890076282081325300C13338 /* ValidationRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationRule.swift; sourceTree = "<group>"; };
+		890076292081325300C13338 /* SSNRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSNRule.swift; sourceTree = "<group>"; };
+		8900762A2081325300C13338 /* HexColorRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColorRule.swift; sourceTree = "<group>"; };
+		8900762B2081325300C13338 /* MinDateRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinDateRule.swift; sourceTree = "<group>"; };
+		8900762C2081325400C13338 /* RegexRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexRule.swift; sourceTree = "<group>"; };
+		8900762D2081325400C13338 /* ConfirmRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRule.swift; sourceTree = "<group>"; };
+		8900762E2081325400C13338 /* MaxLengthRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxLengthRule.swift; sourceTree = "<group>"; };
+		8900762F2081325400C13338 /* MinLengthRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinLengthRule.swift; sourceTree = "<group>"; };
+		890076302081325400C13338 /* RoutingNumberRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingNumberRule.swift; sourceTree = "<group>"; };
+		890076312081325400C13338 /* ZipCodeRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeRule.swift; sourceTree = "<group>"; };
+		890076322081325400C13338 /* AlphaRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaRule.swift; sourceTree = "<group>"; };
+		890076332081325400C13338 /* CharacterSetRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSetRule.swift; sourceTree = "<group>"; };
+		890076342081325500C13338 /* IPV4Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPV4Rule.swift; sourceTree = "<group>"; };
+		890076352081325500C13338 /* FullNameRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullNameRule.swift; sourceTree = "<group>"; };
+		890076362081325500C13338 /* ISBNRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISBNRule.swift; sourceTree = "<group>"; };
+		890076372081325500C13338 /* DateConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateConvertable.swift; sourceTree = "<group>"; };
+		890076382081325500C13338 /* ExactLengthRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExactLengthRule.swift; sourceTree = "<group>"; };
+		890076392081325500C13338 /* PasswordRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRule.swift; sourceTree = "<group>"; };
+		8900763A2081325500C13338 /* FloatRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRule.swift; sourceTree = "<group>"; };
+		8900763B2081325500C13338 /* PhoneNumberRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberRule.swift; sourceTree = "<group>"; };
+		8900763C2081325500C13338 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		89007655208132C500C13338 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		891732F920782DC700001EAB /* FitBot_Activity_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBot_Activity_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		891732FC20782DC700001EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8917330320782DC900001EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +159,6 @@
 		8955E382207F051C00B7DDCB /* ActivityDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsVC.swift; sourceTree = "<group>"; };
 		8955E389207F06D900B7DDCB /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		8959E96E207C005D00753F41 /* SVNBootstraper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNBootstraper.framework; path = Carthage/Build/iOS/SVNBootstraper.framework; sourceTree = "<group>"; };
-		8959E96F207C005D00753F41 /* SVNTextValidator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTextValidator.framework; path = Carthage/Build/iOS/SVNTextValidator.framework; sourceTree = "<group>"; };
 		8959E970207C005D00753F41 /* DeviceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceKit.framework; path = Carthage/Build/iOS/DeviceKit.framework; sourceTree = "<group>"; };
 		8959E972207C005D00753F41 /* SVNShapesManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNShapesManager.framework; path = Carthage/Build/iOS/SVNShapesManager.framework; sourceTree = "<group>"; };
 		8959E973207C005D00753F41 /* SVNTheme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVNTheme.framework; path = Carthage/Build/iOS/SVNTheme.framework; sourceTree = "<group>"; };
@@ -160,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8959E975207C005D00753F41 /* SVNBootstraper.framework in Frameworks */,
-				8959E976207C005D00753F41 /* SVNTextValidator.framework in Frameworks */,
 				8959E977207C005D00753F41 /* DeviceKit.framework in Frameworks */,
 				8959E979207C005D00753F41 /* SVNShapesManager.framework in Frameworks */,
 				8959E97A207C005D00753F41 /* SVNTheme.framework in Frameworks */,
@@ -171,6 +226,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		890076182081322700C13338 /* SwiftValidator */ = {
+			isa = PBXGroup;
+			children = (
+				890076242081324600C13338 /* Rules */,
+				890076192081323800C13338 /* Core */,
+			);
+			path = SwiftValidator;
+			sourceTree = "<group>";
+		};
+		890076192081323800C13338 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8900761A2081324200C13338 /* Validatable.swift */,
+				8900761B2081324200C13338 /* ValidationDelegate.swift */,
+				8900761D2081324200C13338 /* ValidationError.swift */,
+				89007655208132C500C13338 /* Validator.swift */,
+				8900761C2081324200C13338 /* ValidatorDictionary.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		890076242081324600C13338 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				890076252081325300C13338 /* AlphaNumericRule.swift */,
+				890076322081325400C13338 /* AlphaRule.swift */,
+				890076332081325400C13338 /* CharacterSetRule.swift */,
+				8900762D2081325400C13338 /* ConfirmRule.swift */,
+				890076372081325500C13338 /* DateConvertable.swift */,
+				890076272081325300C13338 /* EmailRule.swift */,
+				890076382081325500C13338 /* ExactLengthRule.swift */,
+				8900763A2081325500C13338 /* FloatRule.swift */,
+				890076352081325500C13338 /* FullNameRule.swift */,
+				8900762A2081325300C13338 /* HexColorRule.swift */,
+				890076342081325500C13338 /* IPV4Rule.swift */,
+				890076362081325500C13338 /* ISBNRule.swift */,
+				8900762E2081325400C13338 /* MaxLengthRule.swift */,
+				8900762B2081325300C13338 /* MinDateRule.swift */,
+				8900762F2081325400C13338 /* MinLengthRule.swift */,
+				890076392081325500C13338 /* PasswordRule.swift */,
+				8900763B2081325500C13338 /* PhoneNumberRule.swift */,
+				8900762C2081325400C13338 /* RegexRule.swift */,
+				890076262081325300C13338 /* RequiredRule.swift */,
+				890076302081325400C13338 /* RoutingNumberRule.swift */,
+				8900763C2081325500C13338 /* Rule.swift */,
+				890076292081325300C13338 /* SSNRule.swift */,
+				890076282081325300C13338 /* ValidationRule.swift */,
+				890076312081325400C13338 /* ZipCodeRule.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
 		891732F020782DC700001EAB = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +334,7 @@
 		8917331C2078332400001EAB /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				890076182081322700C13338 /* SwiftValidator */,
 				8917331620782F7100001EAB /* Coordinating */,
 				89B2BEDD207C052600718913 /* SVNForm */,
 				891733172078324700001EAB /* NeedsDependency.swift */,
@@ -264,7 +372,6 @@
 				8959E970207C005D00753F41 /* DeviceKit.framework */,
 				8959E96E207C005D00753F41 /* SVNBootstraper.framework */,
 				8959E972207C005D00753F41 /* SVNShapesManager.framework */,
-				8959E96F207C005D00753F41 /* SVNTextValidator.framework */,
 				8959E973207C005D00753F41 /* SVNTheme.framework */,
 				8959E974207C005D00753F41 /* SwiftEssentials.framework */,
 			);
@@ -488,7 +595,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DeviceKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVNBootstraper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SVNTextValidator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVNTheme.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftEssentials.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SVNShapesManager.framework",
@@ -498,7 +604,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/DeviceKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNBootstraper.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNShapesManager.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNTextValidator.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVNTheme.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftEssentials.framework",
 			);
@@ -515,17 +620,28 @@
 			files = (
 				89B2BF05207C054000718913 /* SVNFormTextField.swift in Sources */,
 				897B67EC207ACC25002E0120 /* NewActivityBackgroundView.swift in Sources */,
+				8900763D2081325600C13338 /* AlphaNumericRule.swift in Sources */,
 				89B2BF2A207C05A100718913 /* LocalButtonDataSource.swift in Sources */,
 				89D45D8D2079825300D3536F /* ActivityState.swift in Sources */,
 				89B2BF00207C054000718913 /* DeviceSize.swift in Sources */,
+				8900763E2081325600C13338 /* RequiredRule.swift in Sources */,
+				890076222081324200C13338 /* ValidationError.swift in Sources */,
+				890076202081324200C13338 /* ValidationDelegate.swift in Sources */,
+				8900764D2081325600C13338 /* FullNameRule.swift in Sources */,
 				8955E383207F051C00B7DDCB /* ActivityDetailsVC.swift in Sources */,
 				89B2BEF8207C054000718913 /* SVNFormPlaceholderLabel.swift in Sources */,
 				89B2BF02207C054000718913 /* SVNFormDisclosureButton.swift in Sources */,
+				89007656208132C500C13338 /* Validator.swift in Sources */,
 				8917331320782F6C00001EAB /* Coordinator.swift in Sources */,
 				8955E378207D9CE100B7DDCB /* ActivityMetaTableViewCell.swift in Sources */,
 				89B2BEFA207C054000718913 /* SVNFormViewModel.swift in Sources */,
+				8900764E2081325600C13338 /* ISBNRule.swift in Sources */,
 				89B2BF07207C054000718913 /* SVNToggleType.swift in Sources */,
+				8900764A2081325600C13338 /* AlphaRule.swift in Sources */,
 				897B67F1207AFCF9002E0120 /* ActivityCoordinator.swift in Sources */,
+				890076212081324200C13338 /* ValidatorDictionary.swift in Sources */,
+				890076472081325600C13338 /* MinLengthRule.swift in Sources */,
+				8900764B2081325600C13338 /* CharacterSetRule.swift in Sources */,
 				89B2BEFC207C054000718913 /* SVNFormFieldType.swift in Sources */,
 				89B2BF03207C054000718913 /* SVNFormToggleView.swift in Sources */,
 				8955E376207D9C1A00B7DDCB /* ActivitiesDataSource.swift in Sources */,
@@ -533,28 +649,42 @@
 				8955E37F207ED95100B7DDCB /* StravaAuthVC.swift in Sources */,
 				89B2BF2D207C073C00718913 /* LocalDatePickerType.swift in Sources */,
 				8917331220782F6C00001EAB /* NavigationCoordinator.swift in Sources */,
+				890076542081325600C13338 /* Rule.swift in Sources */,
+				890076402081325600C13338 /* ValidationRule.swift in Sources */,
 				89B2BF0F207C054000718913 /* TermsActionSheetPresentable.swift in Sources */,
+				8900761F2081324200C13338 /* Validatable.swift in Sources */,
 				897B67F3207B02CA002E0120 /* PresentReverseAnimator.swift in Sources */,
 				89D45D80207974C400D3536F /* CoordinatableViewController.swift in Sources */,
 				891733182078324700001EAB /* NeedsDependency.swift in Sources */,
 				89B2BF11207C054000718913 /* SVNFormTermsOverlay.swift in Sources */,
 				8955E37B207E4C8B00B7DDCB /* Strava.swift in Sources */,
 				89E4594220795BED00643F9D /* PopButton.swift in Sources */,
+				890076532081325600C13338 /* PhoneNumberRule.swift in Sources */,
 				89B2BF2B207C05A100718913 /* LocalFormFieldType.swift in Sources */,
 				89B2BF09207C054000718913 /* SVNFormTheme.swift in Sources */,
 				89B2BF0E207C054000718913 /* SVNTermsActionSheetDatasource.swift in Sources */,
+				890076482081325600C13338 /* RoutingNumberRule.swift in Sources */,
 				89B2BF10207C054000718913 /* SVNFormViewController.swift in Sources */,
 				89E4594420795D3A00643F9D /* Theme.swift in Sources */,
+				8900763F2081325600C13338 /* EmailRule.swift in Sources */,
 				8955E38A207F06D900B7DDCB /* ActivityDetailsView.swift in Sources */,
 				8917331420782F6C00001EAB /* UIKit-CoordinatingExtensions.swift in Sources */,
 				8955E36E207C0F1200B7DDCB /* Content.swift in Sources */,
+				890076422081325600C13338 /* HexColorRule.swift in Sources */,
+				890076492081325600C13338 /* ZipCodeRule.swift in Sources */,
 				897B67F7207B0B48002E0120 /* NewActivityVC.swift in Sources */,
 				8917331520782F6C00001EAB /* Coordinating.swift in Sources */,
+				8900764F2081325600C13338 /* DateConvertable.swift in Sources */,
+				8900764C2081325600C13338 /* IPV4Rule.swift in Sources */,
 				89B2BF28207C05A100718913 /* LocalFormDataSource.swift in Sources */,
 				89B2BF0B207C054000718913 /* SVNFormCheckMarkView.swift in Sources */,
+				890076432081325600C13338 /* MinDateRule.swift in Sources */,
 				89B2BF0D207C054000718913 /* SVNFormDatePickerType.swift in Sources */,
+				890076412081325600C13338 /* SSNRule.swift in Sources */,
 				89B2BEFD207C054000718913 /* SVNFormFieldView.swift in Sources */,
 				89B2BF01207C054000718913 /* SVNFormError.swift in Sources */,
+				890076522081325600C13338 /* FloatRule.swift in Sources */,
+				890076442081325600C13338 /* RegexRule.swift in Sources */,
 				8955E372207C600300B7DDCB /* Networking.swift in Sources */,
 				891732FD20782DC700001EAB /* AppDelegate.swift in Sources */,
 				8917331B2078329200001EAB /* AppDependency.swift in Sources */,
@@ -562,12 +692,16 @@
 				89B2BEF9207C054000718913 /* SVNFormPickerType.swift in Sources */,
 				89B2BF06207C054000718913 /* SVNTermsFieldType.swift in Sources */,
 				89B2BF29207C05A100718913 /* LocalFormTheme.swift in Sources */,
+				890076462081325600C13338 /* MaxLengthRule.swift in Sources */,
+				890076512081325600C13338 /* PasswordRule.swift in Sources */,
 				89B2BF0C207C054000718913 /* BDFormTypeAliases.swift in Sources */,
 				89B2BF0A207C054000718913 /* FinePrintCreatable.swift in Sources */,
 				89B2BEFF207C054000718913 /* SVNLargeButtonDatasource.swift in Sources */,
 				89B2BF08207C054000718913 /* SVNFormToolbar.swift in Sources */,
+				890076452081325600C13338 /* ConfirmRule.swift in Sources */,
 				89B2BEFB207C054000718913 /* LWDatePickerView.swift in Sources */,
 				89B2BF04207C054000718913 /* SVNLargeButton.swift in Sources */,
+				890076502081325600C13338 /* ExactLengthRule.swift in Sources */,
 				89B2BEFE207C054000718913 /* SVNFormPickerView.swift in Sources */,
 				8955E374207D9B8600B7DDCB /* Activity.swift in Sources */,
 				8917331F2078333D00001EAB /* ApplicationCoordinator.swift in Sources */,
