@@ -313,6 +313,7 @@
 		8917331620782F7100001EAB /* Coordinating */ = {
 			isa = PBXGroup;
 			children = (
+				891733172078324700001EAB /* NeedsDependency.swift */,
 				8917331120782F6C00001EAB /* Coordinating.swift */,
 				8917330F20782F6B00001EAB /* Coordinator.swift */,
 				8917331020782F6B00001EAB /* UIKit-CoordinatingExtensions.swift */,
@@ -337,7 +338,6 @@
 				890076182081322700C13338 /* SwiftValidator */,
 				8917331620782F7100001EAB /* Coordinating */,
 				89B2BEDD207C052600718913 /* SVNForm */,
-				891733172078324700001EAB /* NeedsDependency.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";

@@ -6,11 +6,12 @@
 //  Copyright © 2018 Bikis Design. All rights reserved.
 //
 
-// The data source of all the fields for the form
 
+/// validation from https://github.com/bikisDesign/SwiftValidator
+/// 
 import UIKit
 
-
+/// The dataSource of all the fields for the form
 enum LocalFormFieldType: SVNFormFieldType {
   case time
   case distance

@@ -24,4 +24,3 @@ extension NeedsDependency where Self: Coordinating {
     }
   }
 }
-
